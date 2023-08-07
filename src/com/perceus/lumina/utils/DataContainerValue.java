@@ -5,7 +5,11 @@ import org.bukkit.persistence.PersistentDataContainer;
 
 import com.perceus.lumina.Lumina;
 import com.perceus.lumina.utils.DataUtils.DType;
-
+/**
+ * 
+ * @author Laeven
+ *
+ */
 public class DataContainerValue
 {
 	private NamespacedKey key;

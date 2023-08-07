@@ -26,7 +26,11 @@ import com.perceus.lumina.Lumina;
 import com.perceus.lumina.PrintUtils;
 
 import net.minecraft.nbt.NBTBase;
-
+/**
+ * 
+ * @author Laeven
+ *
+ */
 public class DataUtils
 {
 	private static NamespacedKey dataKey = new NamespacedKey(Lumina.instance,"JSON_DATA_MAP");
