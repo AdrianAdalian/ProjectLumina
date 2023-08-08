@@ -1,7 +1,10 @@
 package com.perceus.lumina;
 
+import java.util.ArrayList;
+import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -217,6 +220,8 @@ public class SpellControlSystem implements Listener
 		return;
 	}
 	public static Map<String, Spell> spell_registry = new HashMap<>();
+	
+	public static Map<spelltype, List<Spell>> protoregistry = new EnumMap<>(spelltype.class);
 	
 	public static void init() 
 	{
@@ -472,6 +477,15 @@ public class SpellControlSystem implements Listener
 		spell_registry.put(cantripLS.getName(), cantripLS);
 		CantripHealOther cantripHO = new CantripHealOther();
 		spell_registry.put(cantripHO.getName(), cantripHO);
+		
+		for (Spell spell : spell_registry.values()) 
+		{
+			if (!protoregistry.containsKey(spell.getSpellType())) 
+			{
+				protoregistry.put(spell.getSpellType(), new ArrayList<>());
+			}
+			protoregistry.get(spell.getSpellType()).add(spell);
+		}
 	}
 	public enum spelltype
 	{
@@ -505,8 +519,8 @@ public class SpellControlSystem implements Listener
 		ItemStack stack = new ItemStack(Material.BOOK);
 		ItemMeta meta = stack.getItemMeta();
 		meta.setDisplayName("Tattered " + type.name + " Grimoire");
-		DataUtils.set("grimoire", DType.STRING, type.toString(), stack);
 		stack.setItemMeta(meta);
+		DataUtils.set("grimoire", DType.STRING, type.toString(), stack);
 		return stack;
 	}
 }

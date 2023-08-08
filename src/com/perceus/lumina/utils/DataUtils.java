@@ -253,7 +253,6 @@ public class DataUtils
 	}
 	
 	/**
-	 * Retarded method to natively set the PersistentDataType because YA CAN'T DO IT GENERICALLY... MY ASS
 	 * @param key The key used to access the data
 	 * @param type Type the data should be saved as
 	 * @param value Value of this data
