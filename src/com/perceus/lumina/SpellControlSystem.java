@@ -126,12 +126,29 @@ import com.perceus.lumina.spells.unholy.SpellReap;
 import com.perceus.lumina.spells.unholy.SpellRot;
 import com.perceus.lumina.spells.unholy.SpellUndeadEffigy;
 import com.perceus.lumina.spells.unholy.SpellUnholyRecall;
+import com.perceus.lumina.spells.void_spells.SpellAntiGravity;
 import com.perceus.lumina.spells.void_spells.SpellAntimatter;
 import com.perceus.lumina.spells.void_spells.SpellAtomicBolt;
+import com.perceus.lumina.spells.void_spells.SpellBanish;
+import com.perceus.lumina.spells.void_spells.SpellCataclysm;
+import com.perceus.lumina.spells.void_spells.SpellCrush;
+import com.perceus.lumina.spells.void_spells.SpellGate;
+import com.perceus.lumina.spells.void_spells.SpellGravitas;
 import com.perceus.lumina.spells.void_spells.SpellMatterReversal;
 import com.perceus.lumina.spells.void_spells.SpellNullPointEnchantment;
+import com.perceus.lumina.spells.void_spells.SpellOverrideClimate;
+import com.perceus.lumina.spells.void_spells.SpellPolarize;
+import com.perceus.lumina.spells.void_spells.SpellPrimordialShift;
+import com.perceus.lumina.spells.void_spells.SpellPull;
+import com.perceus.lumina.spells.void_spells.SpellRecallAnchor;
 import com.perceus.lumina.spells.void_spells.SpellReconfigureMatter;
+import com.perceus.lumina.spells.void_spells.SpellRift;
+import com.perceus.lumina.spells.void_spells.SpellTeleport;
+import com.perceus.lumina.spells.void_spells.SpellVectorPlate;
 import com.perceus.lumina.spells.void_spells.SpellVoidContainment;
+import com.perceus.lumina.spells.void_spells.SpellVoidShift;
+import com.perceus.lumina.spells.water.SpellFrost;
+import com.perceus.lumina.spells.water.SpellFrostSpike;
 import com.perceus.lumina.spells.water.SpellRiptide;
 import com.perceus.lumina.spells.water.SpellScales;
 import com.perceus.lumina.spells.water.SpellTidalForce;
@@ -162,7 +179,7 @@ public class SpellControlSystem implements Listener
 		
 		if(!Wand.isWand(e.getPlayer().getInventory().getItemInMainHand())) { return; }
 		
-		if (e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK)
+		if ((e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK) && !e.getPlayer().isSneaking())
 		{
 			Wand wand = new Wand(e.getPlayer().getInventory().getItemInMainHand());
 
@@ -277,6 +294,10 @@ public class SpellControlSystem implements Listener
 		spell_registry.put(spellTF.getName(), spellTF);
 		SpellWaveWake spellwavewake = new SpellWaveWake();
 		spell_registry.put(spellwavewake.getName(), spellwavewake);
+		SpellFrost spellfrost = new SpellFrost();
+		spell_registry.put(spellfrost.getName(), spellfrost);
+		SpellFrostSpike spellfrostspike = new SpellFrostSpike();
+		spell_registry.put(spellfrostspike.getName(), spellfrostspike);
 		
 		//STORM SPELLS
 		SpellSmite spellsmite = new SpellSmite();
@@ -439,6 +460,36 @@ public class SpellControlSystem implements Listener
 		spell_registry.put(spellantimatter.getName(), spellantimatter);
 		SpellNullPointEnchantment NPEnchanting = new SpellNullPointEnchantment();
 		spell_registry.put(NPEnchanting.getName(), NPEnchanting);
+		SpellGravitas spellgravitas = new SpellGravitas();
+		spell_registry.put(spellgravitas.getName(), spellgravitas);
+		SpellAntiGravity spellantigravity = new SpellAntiGravity();
+		spell_registry.put(spellantigravity.getName(), spellantigravity);
+		SpellCataclysm spellcataclysm = new SpellCataclysm();
+		spell_registry.put(spellcataclysm.getName(), spellcataclysm);
+		SpellCrush spellcrush = new SpellCrush();
+		spell_registry.put(spellcrush.getName(), spellcrush);
+		SpellBanish spellbanish = new SpellBanish();
+		spell_registry.put(spellbanish.getName(), spellbanish);
+		SpellGate spellgate = new SpellGate();
+		spell_registry.put(spellgate.getName(), spellgate);
+		SpellPolarize spellpolarize = new SpellPolarize();
+		spell_registry.put(spellpolarize.getName(), spellpolarize);
+		SpellOverrideClimate spelloverrideclimate = new SpellOverrideClimate();
+		spell_registry.put(spelloverrideclimate.getName(), spelloverrideclimate);
+		SpellPrimordialShift spellpshift = new SpellPrimordialShift();
+		spell_registry.put(spellpshift.getName(), spellpshift);
+		SpellPull spellpull = new SpellPull();
+		spell_registry.put(spellpull.getName(), spellpull);
+		SpellRecallAnchor spellrecallanchor = new SpellRecallAnchor();
+		spell_registry.put(spellrecallanchor.getName(), spellrecallanchor);
+		SpellTeleport spellteleport = new SpellTeleport();
+		spell_registry.put(spellteleport.getName(), spellteleport);
+		SpellVoidShift spellvoidshift = new SpellVoidShift();
+		spell_registry.put(spellvoidshift.getName(), spellvoidshift);
+		SpellVectorPlate spellvectorplate = new SpellVectorPlate();
+		spell_registry.put(spellvectorplate.getName(), spellvectorplate);
+		SpellRift spellrift = new SpellRift();
+		spell_registry.put(spellrift.getName(), spellrift);
 		
 		//TOX SPELL
 		SpellPoisonGas spellpgas = new SpellPoisonGas();

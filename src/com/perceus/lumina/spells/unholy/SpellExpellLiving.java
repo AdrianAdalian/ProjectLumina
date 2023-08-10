@@ -68,7 +68,7 @@ public class SpellExpellLiving extends Spell
 			player.sendMessage("Invalid Target");
 			return false;
 		}
-		event.getPlayer().playSound(event.getPlayer().getLocation(), Sound.ENTITY_WITHER_AMBIENT, SoundCategory.MASTER, 1, 1);
+		player.playSound(player.getLocation(), Sound.ENTITY_WITHER_AMBIENT, SoundCategory.MASTER, 1, 1);
 		((Damageable) target).damage(84);
 		
 		return true;

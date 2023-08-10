@@ -13,3 +13,6 @@ commands:
     givespell:
         description: gives the player a spell item
         usage: /givespell <args>
+    kit:
+        description: gives the player their starter spell
+        usage: /kit

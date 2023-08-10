@@ -22,6 +22,13 @@ import org.bukkit.inventory.InventoryView;
 import org.bukkit.inventory.ItemStack;
 
 import com.perceus.lumina.SpellControlSystem.spelltype;
+import com.perceus.lumina.spells.cantrips.CantripBlink;
+import com.perceus.lumina.spells.cantrips.CantripEmbers;
+import com.perceus.lumina.spells.cantrips.CantripGust;
+import com.perceus.lumina.spells.cantrips.CantripHealOther;
+import com.perceus.lumina.spells.cantrips.CantripLifeSteal;
+import com.perceus.lumina.spells.cantrips.CantripSoak;
+import com.perceus.lumina.spells.cantrips.CantripTerraform;
 import com.perceus.lumina.utils.DataUtils;
 import com.perceus.lumina.wand.Wand;
 
@@ -29,18 +36,31 @@ public class LuminaGui implements Listener
 {
 	private static Map<String, Set<Integer>> white_listed_slots = 
 	Map.of(
+		"Lumina GUI: Choose a Spell", Set.of(10,11,12,13,14,15,16),
 		"Lumina GUI: <Choose a Selection>", Set.of(13,14,15),
 		"Lumina GUI: Recharge Wand", Set.of(11, 13,15),
 		"Lumina GUI: Set Spells", Set.of(11, 13, 15),
 		"Lumina GUI: Discover Spells", Set.of(10, 13, 16)
 	);
 	public static Map<Player, InventoryView> inGUI = new HashMap<>();
-	public InventoryView openGUI(Player player, Inventory inv) 
+	public static InventoryView openGUI(Player player, Inventory inv) 
 	{
 		inGUI.put(player, player.openInventory(inv));
 		InventoryView view = inGUI.get(player);
 		switch (view.getTitle()) 
 		{
+		
+			case "Lumina GUI: Choose a Spell" ->
+			{
+				view.setItem(10, new CantripEmbers().getAsItemStack());
+				view.setItem(11, new CantripSoak().getAsItemStack());
+				view.setItem(12, new CantripTerraform().getAsItemStack());
+				view.setItem(13, new CantripGust().getAsItemStack());
+				view.setItem(14, new CantripHealOther().getAsItemStack());
+				view.setItem(15, new CantripLifeSteal().getAsItemStack());
+				view.setItem(16, new CantripBlink().getAsItemStack());
+			}
+		
 			case "Lumina GUI: <Choose a Selection>" -> 
 			{
 				view.setItem(12, new ItemStack(Material.AMETHYST_CLUSTER));
@@ -65,6 +85,10 @@ public class LuminaGui implements Listener
 				view.setItem(22, new ItemStack(Material.GRAY_STAINED_GLASS_PANE));
 
 			}
+			default ->
+			{
+				PrintUtils.Print("THIS IS NOT A GUI");
+			}
 		}
 		return inGUI.get(player);
 	}
@@ -83,16 +107,36 @@ public class LuminaGui implements Listener
 			}
 			case "Lumina GUI: Recharge Wand" -> 
 			{
+				if (e.getView().getItem(11) == null) 
+				{
+					return;
+				}
+				if (e.getView().getItem(15) == null) 
+				{
+					return;
+				}
 				e.getPlayer().getInventory().addItem(e.getView().getItem(11));
 				e.getPlayer().getInventory().addItem(e.getView().getItem(15));
 			}
 			case "Lumina GUI: Set Spells" -> 
 			{
+				if (e.getView().getItem(11) == null) 
+				{
+					return;
+				}
+				if (e.getView().getItem(15) == null) 
+				{
+					return;
+				}
 				e.getPlayer().getInventory().addItem(e.getView().getItem(11));
 				e.getPlayer().getInventory().addItem(e.getView().getItem(15));
 			}
 			case "Lumina GUI: Discover Spells" -> 
 			{
+				if (e.getView().getItem(13) == null) 
+				{
+					return;
+				}
 				e.getPlayer().getInventory().addItem(e.getView().getItem(13));
 			}
 		}
@@ -148,6 +192,51 @@ public class LuminaGui implements Listener
 		{
 			e.setCancelled(true);
 			return;
+		}
+		
+		switch (e.getView().getTitle()) 
+		{
+			case "Lumina GUI: Choose a Spell" ->
+			{
+				switch (e.getRawSlot()) 
+				{
+					case 10 -> 
+					{
+						e.getWhoClicked().getInventory().addItem(new CantripEmbers().getAsItemStack());
+						e.getWhoClicked().closeInventory();
+					}
+					case 11 -> 
+					{
+						e.getWhoClicked().getInventory().addItem(new CantripSoak().getAsItemStack());
+						e.getWhoClicked().closeInventory();
+					}
+					case 12 -> 
+					{
+						e.getWhoClicked().getInventory().addItem(new CantripTerraform().getAsItemStack());
+						e.getWhoClicked().closeInventory();
+					}
+					case 13 -> 
+					{
+						e.getWhoClicked().getInventory().addItem(new CantripGust().getAsItemStack());
+						e.getWhoClicked().closeInventory();
+					}
+					case 14 -> 
+					{
+						e.getWhoClicked().getInventory().addItem(new CantripHealOther().getAsItemStack());
+						e.getWhoClicked().closeInventory();
+					}
+					case 15 -> 
+					{
+						e.getWhoClicked().getInventory().addItem(new CantripLifeSteal().getAsItemStack());
+						e.getWhoClicked().closeInventory();
+					}
+					case 16 -> 
+					{
+						e.getWhoClicked().getInventory().addItem(new CantripBlink().getAsItemStack());
+						e.getWhoClicked().closeInventory();
+					}
+				}
+			}
 		}
 		
 		switch (e.getView().getTitle()) 
@@ -235,15 +324,13 @@ public class LuminaGui implements Listener
 	
 	public void clickedGreenButtonInDiscovery(InventoryClickEvent e) 
 	{
-		PrintUtils.Print("CLICK!");
 		if (e.getView().getItem(13) == null) 
 		{
-			PrintUtils.Print("CLOCK!");
 			return;
 		}
 		if (DataUtils.has("grimoire", e.getView().getItem(13))) 
 		{
-			PrintUtils.Print("CLECK!");
+
 			for (int i = e.getView().getItem(13).getAmount() ; i >= 1 ; i--) 
 			{
 				spelltype type = spelltype.valueOf(DataUtils.get("grimoire", e.getView().getItem(13)).asString());
@@ -268,13 +355,12 @@ public class LuminaGui implements Listener
 		{
 			return;
 		}
-		
+
 		if(!Wand.isWand(e.getPlayer().getInventory().getItemInMainHand())) { return; }
 		
 		if (e.getPlayer().isSneaking() && e.getAction() == Action.RIGHT_CLICK_AIR) 
 		{
-			openGUI(e.getPlayer(), Bukkit.createInventory(null, 27, "Lumina GUI: <Choose a Selection>"));
-			
+			openGUI(e.getPlayer(), Bukkit.createInventory(null, 27, "Lumina GUI: <Choose a Selection>"));	
 		}
 	}
 }

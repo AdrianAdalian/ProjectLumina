@@ -14,6 +14,7 @@ public class Lumina extends JavaPlugin
 	{
 		this.getCommand("wand").setExecutor(new LuminaCommand());
 		this.getCommand("givespell").setExecutor(new SpellCommand());
+		this.getCommand("kit").setExecutor(new SpellKitCommand());
 		Bukkit.getPluginManager().registerEvents(new SpellControlSystem(), this);
 		Bukkit.getPluginManager().registerEvents(new LuminaGui(), this);
 		Bukkit.getPluginManager().registerEvents(new WandHoldEvent(), this);
