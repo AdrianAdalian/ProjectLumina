@@ -27,9 +27,9 @@ public class SpellBanish extends Spell
 				"&r&fBanish any target into the &r&3&lVOID&r&f.",
 				"&r&fBoss monsters are immune.",
 				"&r&fRange: 20 meters.",
-				"&r&fMana cost: 500 &r&9mana&r&f.",
+				"&r&fMana cost: 250 &r&9mana&r&f.",
 				"&r&fCooldown: 5 seconds."
-		}, 500, 100, spelltype.VOID);
+		}, 250, 100, spelltype.VOID);
 	}
 
 	@Override

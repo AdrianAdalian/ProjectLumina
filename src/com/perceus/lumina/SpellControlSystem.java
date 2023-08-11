@@ -48,6 +48,7 @@ import com.perceus.lumina.spells.fire.SpellOverclockProtocol;
 import com.perceus.lumina.spells.fire.SpellOverheat;
 import com.perceus.lumina.spells.fire.SpellPrimedEruption;
 import com.perceus.lumina.spells.fire.SpellPyroball;
+import com.perceus.lumina.spells.fire.SpellRebrand;
 import com.perceus.lumina.spells.geo.SpellBoulder;
 import com.perceus.lumina.spells.geo.SpellCultivate;
 import com.perceus.lumina.spells.geo.SpellDracomorph;
@@ -148,8 +149,16 @@ import com.perceus.lumina.spells.void_spells.SpellTeleport;
 import com.perceus.lumina.spells.void_spells.SpellVectorPlate;
 import com.perceus.lumina.spells.void_spells.SpellVoidContainment;
 import com.perceus.lumina.spells.void_spells.SpellVoidShift;
+import com.perceus.lumina.spells.water.SpellBlizzard;
+import com.perceus.lumina.spells.water.SpellConduit;
+import com.perceus.lumina.spells.water.SpellFreeze;
 import com.perceus.lumina.spells.water.SpellFrost;
 import com.perceus.lumina.spells.water.SpellFrostSpike;
+import com.perceus.lumina.spells.water.SpellFrostbite;
+import com.perceus.lumina.spells.water.SpellGills;
+import com.perceus.lumina.spells.water.SpellIceAge;
+import com.perceus.lumina.spells.water.SpellLiquidate;
+import com.perceus.lumina.spells.water.SpellPoseidonsGrace;
 import com.perceus.lumina.spells.water.SpellRiptide;
 import com.perceus.lumina.spells.water.SpellScales;
 import com.perceus.lumina.spells.water.SpellTidalForce;
@@ -285,6 +294,8 @@ public class SpellControlSystem implements Listener
 		spell_registry.put(spellinferno.getName(), spellinferno);
 		SpellFlamethrower spellflamethrower = new SpellFlamethrower();
 		spell_registry.put(spellflamethrower.getName(), spellflamethrower);
+		SpellRebrand spellrebrand = new SpellRebrand();
+		spell_registry.put(spellrebrand.getName(), spellrebrand);
 		
 		//WATER SPELLS
 		SpellRiptide spellriptide = new SpellRiptide();
@@ -299,6 +310,22 @@ public class SpellControlSystem implements Listener
 		spell_registry.put(spellfrost.getName(), spellfrost);
 		SpellFrostSpike spellfrostspike = new SpellFrostSpike();
 		spell_registry.put(spellfrostspike.getName(), spellfrostspike);
+		SpellConduit spellconduit = new SpellConduit();
+		spell_registry.put(spellconduit.getName(), spellconduit);
+		SpellFrostbite spellfrostbite = new SpellFrostbite();
+		spell_registry.put(spellfrostbite.getName(), spellfrostbite);
+		SpellFreeze spellfreeze = new SpellFreeze();
+		spell_registry.put(spellfreeze.getName(), spellfreeze);
+		SpellGills spellgills = new SpellGills();
+		spell_registry.put(spellgills.getName(), spellgills);
+		SpellBlizzard spellblizzard = new SpellBlizzard();
+		spell_registry.put(spellblizzard.getName(), spellblizzard);
+		SpellIceAge spelliceage = new SpellIceAge();
+		spell_registry.put(spelliceage.getName(), spelliceage);
+		SpellPoseidonsGrace spellpgrace = new SpellPoseidonsGrace();
+		spell_registry.put(spellpgrace.getName(), spellpgrace);
+		SpellLiquidate spellliquidate = new SpellLiquidate();
+		spell_registry.put(spellliquidate.getName(), spellliquidate);
 		
 		//STORM SPELLS
 		SpellSmite spellsmite = new SpellSmite();
@@ -543,15 +570,106 @@ public class SpellControlSystem implements Listener
 	}
 	public enum spelltype
 	{
-		FIRE("Fire", null, Set.of(EntityType.MAGMA_CUBE, EntityType.PIGLIN)),
-		WATER("Water", null, Set.of(EntityType.GUARDIAN, EntityType.DOLPHIN)),
-		GEO("Geo", null, Set.of(EntityType.IRON_GOLEM, EntityType.CAMEL)),
-		STORM("Storm", null, Set.of(EntityType.PHANTOM, EntityType.ALLAY, EntityType.VEX, EntityType.ENDER_DRAGON)),
-		HOLY("Holy", null, Set.of(EntityType.COW, EntityType.SHEEP, EntityType.PIG)),
-		UNHOLY("Unholy", null, Set.of(EntityType.SKELETON, EntityType.ZOMBIE)),
-		VOID("Void", null, Set.of(EntityType.ENDER_DRAGON, EntityType.ENDERMAN, EntityType.ENDERMITE, EntityType.SHULKER)),
-		ETHER("Ether", null, Set.of(EntityType.ENDER_DRAGON, EntityType.ENDERMAN, EntityType.ENDERMITE, EntityType.SHULKER)),
-		TOX("Tox", null, Set.of(EntityType.MAGMA_CUBE, EntityType.SLIME));
+		FIRE("Fire", null, Set.of(
+				EntityType.MAGMA_CUBE, 
+				EntityType.PIGLIN,
+				EntityType.BLAZE,
+				EntityType.HUSK,
+				EntityType.CREEPER,
+				EntityType.ENDER_DRAGON,
+				EntityType.PIGLIN_BRUTE,
+				EntityType.STRIDER,
+				EntityType.ZOGLIN,
+				EntityType.SNIFFER,
+				EntityType.ZOMBIFIED_PIGLIN)),
+		WATER("Water", null, Set.of(
+				EntityType.GUARDIAN, 
+				EntityType.DOLPHIN,
+				EntityType.ELDER_GUARDIAN,
+				EntityType.PUFFERFISH,
+				EntityType.DROWNED,
+				EntityType.SQUID,
+				EntityType.GLOW_SQUID,
+				EntityType.AXOLOTL,
+				EntityType.TURTLE)),
+		GEO("Geo", null, Set.of(
+				EntityType.IRON_GOLEM,
+				EntityType.HUSK,
+				EntityType.SNOWMAN,
+				EntityType.FROG,
+				EntityType.CAVE_SPIDER,
+				EntityType.SHULKER,
+				EntityType.TURTLE,
+				EntityType.RAVAGER,
+				EntityType.FROG)),
+		STORM("Storm", null, Set.of(
+				EntityType.PHANTOM, 
+				EntityType.ALLAY, 
+				EntityType.VEX, 
+				EntityType.ENDER_DRAGON, 
+				EntityType.BAT,
+				EntityType.VINDICATOR,
+				EntityType.RAVAGER,
+				EntityType.GHAST,
+				EntityType.BEE,
+				EntityType.PARROT)),
+		HOLY("Holy", null, Set.of(
+				EntityType.COW, 
+				EntityType.SHEEP, 
+				EntityType.PIG,
+				EntityType.ALLAY,
+				EntityType.FOX,
+				EntityType.CAMEL,
+				EntityType.DONKEY,
+				EntityType.HORSE,
+				EntityType.GOAT,
+				EntityType.AXOLOTL,
+				EntityType.GLOW_SQUID,
+				EntityType.TURTLE,
+				EntityType.EVOKER,
+				EntityType.VEX,
+				EntityType.RABBIT)),
+		UNHOLY("Unholy", null, Set.of(
+				EntityType.SKELETON, 
+				EntityType.ZOMBIE,
+				EntityType.WITHER,
+				EntityType.WARDEN,
+				EntityType.VEX,
+				EntityType.PILLAGER,
+				EntityType.ZOMBIE_HORSE,
+				EntityType.ZOMBIE_VILLAGER,
+				EntityType.ZOMBIFIED_PIGLIN,
+				EntityType.CREEPER,
+				EntityType.SPIDER,
+				EntityType.DROWNED,
+				EntityType.EVOKER,
+				EntityType.VINDICATOR,
+				EntityType.GHAST,
+				EntityType.GIANT,
+				EntityType.SKELETON_HORSE,
+				EntityType.WITHER_SKELETON,
+				EntityType.STRAY)),
+		VOID("Void", null, Set.of(
+				EntityType.ILLUSIONER, 
+				EntityType.ENDER_DRAGON, 
+				EntityType.ENDERMAN, 
+				EntityType.ENDERMITE, 
+				EntityType.SHULKER)),
+		ETHER("Ether", null, Set.of(
+				EntityType.ENDER_DRAGON, 
+				EntityType.ENDERMAN, 
+				EntityType.ENDERMITE, 
+				EntityType.SHULKER,
+				EntityType.WARDEN,
+				EntityType.WITHER)),
+		TOX("Tox", null, Set.of(
+				EntityType.MAGMA_CUBE, 
+				EntityType.SLIME, 
+				EntityType.PUFFERFISH,
+				EntityType.SPIDER,
+				EntityType.CAVE_SPIDER,
+				EntityType.BEE,
+				EntityType.BAT));
 		
 		public String name;
 		public ItemStack grimoire;
