@@ -7,7 +7,9 @@ import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.World;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -20,6 +22,7 @@ import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryView;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 import com.perceus.lumina.SpellControlSystem.spelltype;
 import com.perceus.lumina.spells.cantrips.CantripBlink;
@@ -36,9 +39,10 @@ public class LuminaGui implements Listener
 {
 	private static Map<String, Set<Integer>> white_listed_slots = 
 	Map.of(
+		"Lumina GUI: Choose a Locale", Set.of(12,13,14),
 		"Lumina GUI: Choose a Spell", Set.of(10,11,12,13,14,15,16),
-		"Lumina GUI: <Choose a Selection>", Set.of(13,14,15),
-		"Lumina GUI: Recharge Wand", Set.of(11, 13,15),
+		"Lumina GUI: <Choose a Selection>", Set.of(12,13,14),
+		"Lumina GUI: Recharge Wand", Set.of(11,15),
 		"Lumina GUI: Set Spells", Set.of(11, 13, 15),
 		"Lumina GUI: Discover Spells", Set.of(10, 13, 16)
 	);
@@ -49,7 +53,26 @@ public class LuminaGui implements Listener
 		InventoryView view = inGUI.get(player);
 		switch (view.getTitle()) 
 		{
-		
+			case "Lumina GUI: Choose a Locale" ->
+			{
+				ItemStack stack1 = new ItemStack(Material.GRASS_BLOCK);
+				ItemMeta meta1 = stack1.getItemMeta();
+				meta1.setDisplayName("The Overworld");
+				stack1.setItemMeta(meta1);
+				view.setItem(12, stack1);
+				
+				ItemStack stack2 = new ItemStack(Material.NETHERRACK);
+				ItemMeta meta2 = stack2.getItemMeta();
+				meta2.setDisplayName("The Nether");
+				stack2.setItemMeta(meta2);
+				view.setItem(13, stack2);
+				
+				ItemStack stack3 = new ItemStack(Material.END_STONE);
+				ItemMeta meta3 = stack3.getItemMeta();
+				meta3.setDisplayName("The End");
+				stack3.setItemMeta(meta3);
+				view.setItem(14, stack3);
+			}
 			case "Lumina GUI: Choose a Spell" ->
 			{
 				view.setItem(10, new CantripEmbers().getAsItemStack());
@@ -63,13 +86,41 @@ public class LuminaGui implements Listener
 		
 			case "Lumina GUI: <Choose a Selection>" -> 
 			{
-				view.setItem(12, new ItemStack(Material.AMETHYST_CLUSTER));
-				view.setItem(13, new ItemStack(Material.STICK));
-				view.setItem(14, new ItemStack(Material.WRITABLE_BOOK));
+				ItemStack stack4 = new ItemStack(Material.AMETHYST_CLUSTER);
+				ItemMeta meta4 = stack4.getItemMeta();
+				meta4.setDisplayName("Recharge Wand");
+				stack4.setItemMeta(meta4);
+				view.setItem(12, stack4);
+				
+				ItemStack stack5 = new ItemStack(Material.STICK);
+				ItemMeta meta5 = stack5.getItemMeta();
+				meta5.setDisplayName("Set Spells");
+				stack5.setItemMeta(meta5);
+				view.setItem(13, stack5);
+				
+				ItemStack stack6 = new ItemStack(Material.WRITABLE_BOOK);
+				ItemMeta meta6 = stack6.getItemMeta();
+				meta6.setDisplayName("Discover Spells");
+				stack6.setItemMeta(meta6);
+				view.setItem(14, stack6);
 			}
 			case "Lumina GUI: Recharge Wand" -> 
 			{
-				
+				ItemStack stack = new ItemStack(Material.GRAY_STAINED_GLASS_PANE);
+				ItemMeta meta = stack.getItemMeta();
+				meta.setDisplayName("");
+				stack.setItemMeta(meta);
+
+				view.setItem(2, stack);
+				view.setItem(4, stack);
+				view.setItem(6, stack);
+				view.setItem(10, stack);
+				view.setItem(12, stack);
+				view.setItem(14, stack);
+				view.setItem(16, stack);
+				view.setItem(20, stack);
+				view.setItem(22, stack);
+				view.setItem(24, stack);
 			}
 			case "Lumina GUI: Set Spells" -> 
 			{
@@ -77,12 +128,22 @@ public class LuminaGui implements Listener
 			}
 			case "Lumina GUI: Discover Spells" -> 
 			{
-				view.setItem(4, new ItemStack(Material.GRAY_STAINED_GLASS_PANE));
-				view.setItem(10, new ItemStack(Material.GREEN_STAINED_GLASS_PANE));
-				view.setItem(12, new ItemStack(Material.GRAY_STAINED_GLASS_PANE));
-				view.setItem(14, new ItemStack(Material.GRAY_STAINED_GLASS_PANE));
-				view.setItem(16, new ItemStack(Material.GREEN_STAINED_GLASS_PANE));
-				view.setItem(22, new ItemStack(Material.GRAY_STAINED_GLASS_PANE));
+				ItemStack stack = new ItemStack(Material.GRAY_STAINED_GLASS_PANE);
+				ItemMeta meta = stack.getItemMeta();
+				meta.setDisplayName("");
+				stack.setItemMeta(meta);
+				
+				ItemStack stack2 = new ItemStack(Material.GREEN_STAINED_GLASS_PANE);
+				ItemMeta meta2 = stack2.getItemMeta();
+				meta2.setDisplayName("Confirm");
+				stack2.setItemMeta(meta2);
+				
+				view.setItem(4, stack);
+				view.setItem(10, stack2);
+				view.setItem(12, stack);
+				view.setItem(14, stack);
+				view.setItem(16, stack2);
+				view.setItem(22, stack);
 
 			}
 			default ->
@@ -101,6 +162,7 @@ public class LuminaGui implements Listener
 		}
 		switch (e.getView().getTitle()) 
 		{
+		
 			case "Lumina GUI: <Choose a Selection>" -> 
 			{
 				
@@ -177,7 +239,6 @@ public class LuminaGui implements Listener
 	public void onClick(InventoryClickEvent e) 
 	{
 		
-		
 		if (!e.getView().getTitle().startsWith("Lumina GUI")) 
 		{
 			return;
@@ -191,7 +252,6 @@ public class LuminaGui implements Listener
 		if (!white_listed_slots.get(e.getView().getTitle()).contains(e.getRawSlot()) && e.getRawSlot() < e.getView().getTopInventory().getSize()) 
 		{
 			e.setCancelled(true);
-			return;
 		}
 		
 		switch (e.getView().getTitle()) 
@@ -241,6 +301,37 @@ public class LuminaGui implements Listener
 		
 		switch (e.getView().getTitle()) 
 		{
+			case "Lumina GUI: Choose a Locale" ->
+			{
+				switch (e.getRawSlot()) 
+				{
+					case 12 -> 
+					{
+						World world = Bukkit.getWorld("world");
+						Location loc1 = world.getSpawnLocation();
+						e.getWhoClicked().teleport(loc1);
+						e.getWhoClicked().closeInventory();
+					}
+					case 13 ->
+					{
+						World nether = Bukkit.getWorld("world_nether");
+						Location loc2 = nether.getSpawnLocation();
+						e.getWhoClicked().teleport(loc2);
+						e.getWhoClicked().closeInventory();
+					}
+					case 14 ->
+					{
+						World end = Bukkit.getWorld("world_the_end");
+						Location loc3 = end.getSpawnLocation();
+						e.getWhoClicked().teleport(loc3);
+						e.getWhoClicked().closeInventory();
+					}
+				}
+			}
+		}
+		
+		switch (e.getView().getTitle()) 
+		{
 			case "Lumina GUI: <Choose a Selection>" -> 
 			{
 				switch (e.getRawSlot()) 
@@ -256,11 +347,42 @@ public class LuminaGui implements Listener
 				{
 					case 11 -> 
 					{
-						
+						if (e.getCursor() == null || e.getCursor().getType() != Material.AMETHYST_SHARD) 
+						{
+							e.setCancelled(true);
+						}
+						if (!(Wand.isWand(e.getView().getItem(15)))) 
+						{
+							return;
+						}
+						Wand wand = new Wand(e.getView().getItem(15));
+						wand.addMana(1000);
+						e.getView().setItem(13, wand.getAsItemStack());
+					}
+					case 13 ->
+					{
+						if (e.getView().getItem(13) == null) 
+						{
+							return;
+						}
+						e.getWhoClicked().getInventory().addItem(e.getView().getItem(13));
+						e.getView().setItem(11, null);
+						e.getView().setItem(15, null);
+						e.getWhoClicked().closeInventory();
 					}
 					case 15 -> 
 					{
-						
+						if (e.getCursor() == null || !Wand.isWand(e.getCursor())) 
+						{
+							e.setCancelled(true);
+						}
+						if (e.getView().getItem(11) == null || e.getView().getItem(11).getType() != Material.AMETHYST_SHARD) 
+						{
+							return;
+						}
+						Wand wand = new Wand(e.getView().getItem(15));
+						wand.addMana(1000);
+						e.getView().setItem(13, wand.getAsItemStack());
 					}
 				}
 			}
