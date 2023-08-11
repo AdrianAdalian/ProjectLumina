@@ -18,7 +18,8 @@ public class SpellFireball extends Spell
 		super("Fireball", new String[] {"&r&7&ko&r&7&lSpell: &r&fFireball&r&7&ko&r",
 				"&r&fElement: &r&cFire&r&f.",
 				"&r&fSpell Type: &cOffensive&f.",
-				"&r&fSummons a small ball of fire that explodes on impact.",
+				"&r&fSummons a small ball",
+				"&r&fof fire that explodes on impact.",
 				"&r&fMana cost: 5 &r&9mana&r&f.",
 				"&r&fCooldown: 2 seconds."}, 5, 40, spelltype.FIRE);
 	}

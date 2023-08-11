@@ -16,9 +16,9 @@ public class SpellVaporize extends Spell
 	public SpellVaporize()
 	{
 		super("Vaporize", new String[] {
-				"&r&7&ko&r&7&lSpell: &r&fSmite&r&7&ko&r",
+				"&r&7&ko&r&7&lSpell: &r&fVaporize&r&7&ko&r",
 				"&r&fElement: &r&dStorm&r&f.",
-				"&r&fSpell Type: &cOffensive&f.",
+				"&r&fSpell Type: &cOffensive &6&lSignature&r&f.",
 				"&r&fSummon three small bolts of lightning on target.",
 				"&r&fRange: 30 meters.",
 				"&r&fMana cost: 300 &r&9mana&r&f.",

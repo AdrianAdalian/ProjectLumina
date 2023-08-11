@@ -122,6 +122,7 @@ import com.perceus.lumina.spells.unholy.SpellDoom;
 import com.perceus.lumina.spells.unholy.SpellEmbraceTheShadows;
 import com.perceus.lumina.spells.unholy.SpellExpellLiving;
 import com.perceus.lumina.spells.unholy.SpellHarvest;
+import com.perceus.lumina.spells.unholy.SpellLightShift;
 import com.perceus.lumina.spells.unholy.SpellReap;
 import com.perceus.lumina.spells.unholy.SpellRot;
 import com.perceus.lumina.spells.unholy.SpellUndeadEffigy;
@@ -388,6 +389,8 @@ public class SpellControlSystem implements Listener
 		spell_registry.put(spellundeadeffigy.getName(), spellundeadeffigy);
 		SpellUnholyRecall spellunholyrecall = new SpellUnholyRecall();
 		spell_registry.put(spellunholyrecall.getName(), spellunholyrecall);
+		SpellLightShift spelllshift = new SpellLightShift();
+		spell_registry.put(spelllshift.getName(), spelllshift);
 		
 		//HOLY SPELLS
 		SpellMinorHeal spellminorheal = new SpellMinorHeal();

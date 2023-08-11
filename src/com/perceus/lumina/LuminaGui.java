@@ -55,6 +55,23 @@ public class LuminaGui implements Listener
 		{
 			case "Lumina GUI: Choose a Locale" ->
 			{
+				ItemStack stack = new ItemStack(Material.GRAY_STAINED_GLASS_PANE);
+				ItemMeta meta = stack.getItemMeta();
+				meta.setDisplayName("_");
+				stack.setItemMeta(meta);
+				view.setItem(0, stack);
+				view.setItem(1, stack);
+				view.setItem(2, stack);
+				view.setItem(3, stack);
+				view.setItem(4, stack);
+				view.setItem(5, stack);
+				view.setItem(6, stack);
+				view.setItem(7, stack);
+				view.setItem(8, stack);
+				view.setItem(9, stack);
+				view.setItem(10, stack);
+				view.setItem(11, stack);
+				
 				ItemStack stack1 = new ItemStack(Material.GRASS_BLOCK);
 				ItemMeta meta1 = stack1.getItemMeta();
 				meta1.setDisplayName("The Overworld");
@@ -71,10 +88,39 @@ public class LuminaGui implements Listener
 				ItemMeta meta3 = stack3.getItemMeta();
 				meta3.setDisplayName("The End");
 				stack3.setItemMeta(meta3);
+				
 				view.setItem(14, stack3);
+				view.setItem(15, stack);
+				view.setItem(16, stack);
+				view.setItem(17, stack);
+				view.setItem(18, stack);
+				view.setItem(19, stack);
+				view.setItem(20, stack);
+				view.setItem(21, stack);
+				view.setItem(22, stack);
+				view.setItem(23, stack);
+				view.setItem(24, stack);
+				view.setItem(25, stack);
+				view.setItem(26, stack);
+				view.setItem(27, stack);
 			}
 			case "Lumina GUI: Choose a Spell" ->
 			{
+				ItemStack stack = new ItemStack(Material.GRAY_STAINED_GLASS_PANE);
+				ItemMeta meta = stack.getItemMeta();
+				meta.setDisplayName("_");
+				stack.setItemMeta(meta);
+				view.setItem(0, stack);
+				view.setItem(1, stack);
+				view.setItem(2, stack);
+				view.setItem(3, stack);
+				view.setItem(4, stack);
+				view.setItem(5, stack);
+				view.setItem(6, stack);
+				view.setItem(7, stack);
+				view.setItem(8, stack);
+				view.setItem(9, stack);
+				
 				view.setItem(10, new CantripEmbers().getAsItemStack());
 				view.setItem(11, new CantripSoak().getAsItemStack());
 				view.setItem(12, new CantripTerraform().getAsItemStack());
@@ -82,10 +128,39 @@ public class LuminaGui implements Listener
 				view.setItem(14, new CantripHealOther().getAsItemStack());
 				view.setItem(15, new CantripLifeSteal().getAsItemStack());
 				view.setItem(16, new CantripBlink().getAsItemStack());
+				
+				view.setItem(17, stack);
+				view.setItem(18, stack);
+				view.setItem(19, stack);
+				view.setItem(20, stack);
+				view.setItem(21, stack);
+				view.setItem(22, stack);
+				view.setItem(23, stack);
+				view.setItem(24, stack);
+				view.setItem(25, stack);
+				view.setItem(26, stack);
+				view.setItem(27, stack);
 			}
 		
 			case "Lumina GUI: <Choose a Selection>" -> 
 			{
+				ItemStack stack = new ItemStack(Material.GRAY_STAINED_GLASS_PANE);
+				ItemMeta meta = stack.getItemMeta();
+				meta.setDisplayName("_");
+				stack.setItemMeta(meta);
+				view.setItem(0, stack);
+				view.setItem(1, stack);
+				view.setItem(2, stack);
+				view.setItem(3, stack);
+				view.setItem(4, stack);
+				view.setItem(5, stack);
+				view.setItem(6, stack);
+				view.setItem(7, stack);
+				view.setItem(8, stack);
+				view.setItem(9, stack);
+				view.setItem(10, stack);
+				view.setItem(11, stack);
+				
 				ItemStack stack4 = new ItemStack(Material.AMETHYST_CLUSTER);
 				ItemMeta meta4 = stack4.getItemMeta();
 				meta4.setDisplayName("Recharge Wand");
@@ -103,24 +178,52 @@ public class LuminaGui implements Listener
 				meta6.setDisplayName("Discover Spells");
 				stack6.setItemMeta(meta6);
 				view.setItem(14, stack6);
+				
+				view.setItem(15, stack);
+				view.setItem(16, stack);
+				view.setItem(17, stack);
+				view.setItem(18, stack);
+				view.setItem(19, stack);
+				view.setItem(20, stack);
+				view.setItem(21, stack);
+				view.setItem(22, stack);
+				view.setItem(23, stack);
+				view.setItem(24, stack);
+				view.setItem(25, stack);
+				view.setItem(26, stack);
+				view.setItem(27, stack);
 			}
 			case "Lumina GUI: Recharge Wand" -> 
 			{
 				ItemStack stack = new ItemStack(Material.GRAY_STAINED_GLASS_PANE);
 				ItemMeta meta = stack.getItemMeta();
-				meta.setDisplayName("");
+				meta.setDisplayName("_");
 				stack.setItemMeta(meta);
-
+				view.setItem(0, stack);
+				view.setItem(1, stack);
 				view.setItem(2, stack);
+				view.setItem(3, stack);
 				view.setItem(4, stack);
+				view.setItem(5, stack);
 				view.setItem(6, stack);
+				view.setItem(7, stack);
+				view.setItem(8, stack);
+				view.setItem(9, stack);
 				view.setItem(10, stack);
 				view.setItem(12, stack);
 				view.setItem(14, stack);
 				view.setItem(16, stack);
+				view.setItem(17, stack);
+				view.setItem(18, stack);
+				view.setItem(19, stack);
 				view.setItem(20, stack);
+				view.setItem(21, stack);
 				view.setItem(22, stack);
+				view.setItem(23, stack);
 				view.setItem(24, stack);
+				view.setItem(25, stack);
+				view.setItem(26, stack);
+				view.setItem(27, stack);
 			}
 			case "Lumina GUI: Set Spells" -> 
 			{
@@ -130,20 +233,40 @@ public class LuminaGui implements Listener
 			{
 				ItemStack stack = new ItemStack(Material.GRAY_STAINED_GLASS_PANE);
 				ItemMeta meta = stack.getItemMeta();
-				meta.setDisplayName("");
+				meta.setDisplayName("_");
 				stack.setItemMeta(meta);
 				
 				ItemStack stack2 = new ItemStack(Material.GREEN_STAINED_GLASS_PANE);
 				ItemMeta meta2 = stack2.getItemMeta();
 				meta2.setDisplayName("Confirm");
 				stack2.setItemMeta(meta2);
-				
+				view.setItem(0, stack);
+				view.setItem(1, stack);
+				view.setItem(2, stack);
+				view.setItem(3, stack);
 				view.setItem(4, stack);
+				view.setItem(5, stack);
+				view.setItem(6, stack);
+				view.setItem(7, stack);
+				view.setItem(8, stack);
+				view.setItem(9, stack);
 				view.setItem(10, stack2);
+				view.setItem(11, stack);
 				view.setItem(12, stack);
 				view.setItem(14, stack);
+				view.setItem(15, stack);
 				view.setItem(16, stack2);
+				view.setItem(17, stack);
+				view.setItem(18, stack);
+				view.setItem(19, stack);
+				view.setItem(20, stack);
+				view.setItem(21, stack);
 				view.setItem(22, stack);
+				view.setItem(23, stack);
+				view.setItem(24, stack);
+				view.setItem(25, stack);
+				view.setItem(26, stack);
+				view.setItem(27, stack);
 
 			}
 			default ->
@@ -349,7 +472,7 @@ public class LuminaGui implements Listener
 					{
 						if (e.getCursor() == null || e.getCursor().getType() != Material.AMETHYST_SHARD) 
 						{
-							e.setCancelled(true);
+							return;
 						}
 						if (!(Wand.isWand(e.getView().getItem(15)))) 
 						{
@@ -374,7 +497,7 @@ public class LuminaGui implements Listener
 					{
 						if (e.getCursor() == null || !Wand.isWand(e.getCursor())) 
 						{
-							e.setCancelled(true);
+							return;
 						}
 						if (e.getView().getItem(11) == null || e.getView().getItem(11).getType() != Material.AMETHYST_SHARD) 
 						{
@@ -465,6 +588,7 @@ public class LuminaGui implements Listener
 					e.getWhoClicked().getWorld().dropItemNaturally(e.getWhoClicked().getLocation(), returneditems.entrySet().iterator().next().getValue());
 				}
 			}
+			e.getView().setItem(13, null);
 			e.getWhoClicked().closeInventory();
 		}
 	}

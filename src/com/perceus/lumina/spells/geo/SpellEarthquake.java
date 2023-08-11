@@ -21,7 +21,7 @@ public class SpellEarthquake extends Spell
 		super("Earthquake", new String[] {
 				"&r&7&ko&r&7&lSpell: &r&fEarthquake&r&7&ko&r",
 				"&r&fElement: &r&6Geo&r&f.",
-				"&r&fSpell Type: &6&lSignature &r&cOffensive &dAOE&f.",
+				"&r&fSpell Type: &r&cOffensive &dAOE &6&lSignature&r&f.",
 				"&r&fCause an earthquake that deals 5 hearts of &r&cdamage&r&f",
 				"&r&fto all affected and stuns for 5 seconds.",
 				"&r&fRange: 30 meters.",

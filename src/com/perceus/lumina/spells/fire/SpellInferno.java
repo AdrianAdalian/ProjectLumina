@@ -20,7 +20,7 @@ public class SpellInferno extends Spell
 		super("Inferno", new String[] {
 				"&r&7&ko&r&7&lSpell: &r&fInferno&r&7&ko&r",
 				"&r&fElement: &r&cFire&r&f.",
-				"&r&fSpell Type: &6&lSignature &r&cOffensive&d AOE&f.",
+				"&r&fSpell Type: &r&cOffensive &dAOE &6&lSignature&r&f.",
 				"&r&fRain meteors down on all nearby targets.",
 				"&r&fRange: 30 meters.",
 				"&r&fMana cost: 500 &r&9mana&r&f.",

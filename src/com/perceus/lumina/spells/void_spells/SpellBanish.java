@@ -21,15 +21,15 @@ public class SpellBanish extends Spell
 	public SpellBanish()
 	{
 		super("Banish", new String[] {
-				"&r&7&ko&r&7&lSpell: &r&fAnti Gravity&r&7&ko&r",
+				"&r&7&ko&r&7&lSpell: &r&fBanish&r&7&ko&r",
 				"&r&fElement: &r&3&lVOID&r&f.",
 				"&r&fSpell Type: &cOffensive &6&lSignature&r&f.",
 				"&r&fBanish any target into the &r&3&lVOID&r&f.",
 				"&r&fBoss monsters are immune.",
 				"&r&fRange: 20 meters.",
-				"&r&fMana cost: 200 &r&9mana&r&f.",
+				"&r&fMana cost: 500 &r&9mana&r&f.",
 				"&r&fCooldown: 5 seconds."
-		}, 200, 100, spelltype.VOID);
+		}, 500, 100, spelltype.VOID);
 	}
 
 	@Override
