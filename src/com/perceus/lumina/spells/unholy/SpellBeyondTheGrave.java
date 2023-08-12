@@ -1,8 +1,9 @@
 package com.perceus.lumina.spells.unholy;
 
+import org.bukkit.entity.Player;
+import org.bukkit.event.player.PlayerInteractEvent;
+
 import com.perceus.lumina.EntityDeathListener;
-import com.perceus.lumina.Player;
-import com.perceus.lumina.PlayerInteractEvent;
 import com.perceus.lumina.Spell;
 import com.perceus.lumina.SpellControlSystem.spelltype;
 
@@ -30,5 +31,6 @@ public class SpellBeyondTheGrave extends Spell
 		}
 
 		EntityDeathListener.protectPlayer(player);
+		return true;
 	}
 }

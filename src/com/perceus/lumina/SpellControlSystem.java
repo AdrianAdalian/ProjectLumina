@@ -417,8 +417,8 @@ public class SpellControlSystem implements Listener
 		spell_registry.put(spellundeadeffigy.getName(), spellundeadeffigy);
 		SpellUnholyRecall spellunholyrecall = new SpellUnholyRecall();
 		spell_registry.put(spellunholyrecall.getName(), spellunholyrecall);
-		SpellLightShift spellshift = new SpellLightShift();
-		spell_registry.put(spellshift.getName(), spelllshift);
+		SpellLightShift spelllshift = new SpellLightShift();
+		spell_registry.put(spelllshift.getName(), spelllshift);
 		SpellBeyondTheGrave spellBeyondTheGrave = new SpellBeyondTheGrave();
 		spell_registry.put(spellBeyondTheGrave.getName(), spellBeyondTheGrave);
 		
