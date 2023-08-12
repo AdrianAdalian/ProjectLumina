@@ -113,6 +113,7 @@ import com.perceus.lumina.spells.tox.SpellToxBomb;
 import com.perceus.lumina.spells.tox.SpellToxicGas;
 import com.perceus.lumina.spells.tox.SpellToxicWaste;
 import com.perceus.lumina.spells.unholy.SpellAntiMagicMissile;
+import com.perceus.lumina.spells.unholy.SpellBeyondTheGrave;
 import com.perceus.lumina.spells.unholy.SpellBuffBreak;
 import com.perceus.lumina.spells.unholy.SpellConvertUndead;
 import com.perceus.lumina.spells.unholy.SpellDamagingForce;
@@ -416,8 +417,10 @@ public class SpellControlSystem implements Listener
 		spell_registry.put(spellundeadeffigy.getName(), spellundeadeffigy);
 		SpellUnholyRecall spellunholyrecall = new SpellUnholyRecall();
 		spell_registry.put(spellunholyrecall.getName(), spellunholyrecall);
-		SpellLightShift spelllshift = new SpellLightShift();
-		spell_registry.put(spelllshift.getName(), spelllshift);
+		SpellLightShift spellshift = new SpellLightShift();
+		spell_registry.put(spellshift.getName(), spelllshift);
+		SpellBeyondTheGrave spellBeyondTheGrave = new SpellBeyondTheGrave();
+		spell_registry.put(spellBeyondTheGrave.getName(), spellBeyondTheGrave);
 		
 		//HOLY SPELLS
 		SpellMinorHeal spellminorheal = new SpellMinorHeal();
