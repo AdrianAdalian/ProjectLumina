@@ -596,7 +596,6 @@ public class SpellControlSystem implements Listener
 				EntityType.IRON_GOLEM,
 				EntityType.HUSK,
 				EntityType.SNOWMAN,
-				EntityType.FROG,
 				EntityType.CAVE_SPIDER,
 				EntityType.SHULKER,
 				EntityType.TURTLE,
