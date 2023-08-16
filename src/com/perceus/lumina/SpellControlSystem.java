@@ -22,6 +22,11 @@ import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import com.perceus.lumina.spells.almighty.SpellAssault;
+import com.perceus.lumina.spells.almighty.SpellBurst;
+import com.perceus.lumina.spells.almighty.SpellCreate;
+import com.perceus.lumina.spells.almighty.SpellDivineFlame;
+import com.perceus.lumina.spells.astral.SpellAstralProjection;
 import com.perceus.lumina.spells.cantrips.CantripBlink;
 import com.perceus.lumina.spells.cantrips.CantripEmbers;
 import com.perceus.lumina.spells.cantrips.CantripGust;
@@ -46,6 +51,7 @@ import com.perceus.lumina.spells.fire.SpellLaunch;
 import com.perceus.lumina.spells.fire.SpellMeteor;
 import com.perceus.lumina.spells.fire.SpellOverclockProtocol;
 import com.perceus.lumina.spells.fire.SpellOverheat;
+import com.perceus.lumina.spells.fire.SpellPhoenixBlessing;
 import com.perceus.lumina.spells.fire.SpellPrimedEruption;
 import com.perceus.lumina.spells.fire.SpellPyroball;
 import com.perceus.lumina.spells.fire.SpellRebrand;
@@ -60,6 +66,7 @@ import com.perceus.lumina.spells.geo.SpellMagemorph;
 import com.perceus.lumina.spells.geo.SpellMetalmorph;
 import com.perceus.lumina.spells.geo.SpellMinersLuck;
 import com.perceus.lumina.spells.geo.SpellPebbles;
+import com.perceus.lumina.spells.geo.SpellRockFall;
 import com.perceus.lumina.spells.geo.SpellSandBlast;
 import com.perceus.lumina.spells.geo.SpellSandstorm;
 import com.perceus.lumina.spells.geo.SpellTillEarth;
@@ -92,6 +99,7 @@ import com.perceus.lumina.spells.holy.SpellRegenerate;
 import com.perceus.lumina.spells.holy.SpellSatiate;
 import com.perceus.lumina.spells.holy.SpellVialOfSupport;
 import com.perceus.lumina.spells.holy.SpellWard;
+import com.perceus.lumina.spells.solar.SpellSolarBolt;
 import com.perceus.lumina.spells.storm.SpellBoost;
 import com.perceus.lumina.spells.storm.SpellCharge;
 import com.perceus.lumina.spells.storm.SpellElectrocute;
@@ -113,11 +121,11 @@ import com.perceus.lumina.spells.tox.SpellToxBomb;
 import com.perceus.lumina.spells.tox.SpellToxicGas;
 import com.perceus.lumina.spells.tox.SpellToxicWaste;
 import com.perceus.lumina.spells.unholy.SpellAntiMagicMissile;
-import com.perceus.lumina.spells.unholy.SpellBeyondTheGrave;
 import com.perceus.lumina.spells.unholy.SpellBuffBreak;
 import com.perceus.lumina.spells.unholy.SpellConvertUndead;
 import com.perceus.lumina.spells.unholy.SpellDamagingForce;
 import com.perceus.lumina.spells.unholy.SpellDebilitate;
+import com.perceus.lumina.spells.unholy.SpellDecrepitSoul;
 import com.perceus.lumina.spells.unholy.SpellDemonSight;
 import com.perceus.lumina.spells.unholy.SpellDemonicReflex;
 import com.perceus.lumina.spells.unholy.SpellDoom;
@@ -258,6 +266,24 @@ public class SpellControlSystem implements Listener
 		{
 			type.setGrimoire(generateGrimoire(type));
 		}
+		//ALMIGHTY SPELLS
+		SpellBurst spellburst = new SpellBurst();
+		spell_registry.put(spellburst.getName(), spellburst);
+		SpellAssault spellassault = new SpellAssault();
+		spell_registry.put(spellassault.getName(), spellassault);
+		SpellDivineFlame spelldivineflame = new SpellDivineFlame();
+		spell_registry.put(spelldivineflame.getName(), spelldivineflame);
+		SpellCreate spellcreate = new SpellCreate();
+		spell_registry.put(spellcreate.getName(), spellcreate);
+		
+		//ASTRAL SPELLS
+		SpellAstralProjection spellastralprojection = new SpellAstralProjection();
+		spell_registry.put(spellastralprojection.getName(), spellastralprojection);
+		
+		//SOLAR SPELLS
+		SpellSolarBolt spellsolarbolt = new SpellSolarBolt();
+		spell_registry.put(spellsolarbolt.getName(), spellsolarbolt);
+		
 		//FIRE SPELLS
 		SpellFireball spellfireball = new SpellFireball();
 		spell_registry.put(spellfireball.getName(), spellfireball);
@@ -297,6 +323,8 @@ public class SpellControlSystem implements Listener
 		spell_registry.put(spellflamethrower.getName(), spellflamethrower);
 		SpellRebrand spellrebrand = new SpellRebrand();
 		spell_registry.put(spellrebrand.getName(), spellrebrand);
+		SpellPhoenixBlessing spellPhoenixBlessing = new SpellPhoenixBlessing();
+		spell_registry.put(spellPhoenixBlessing.getName(), spellPhoenixBlessing);
 		
 		//WATER SPELLS
 		SpellRiptide spellriptide = new SpellRiptide();
@@ -385,6 +413,8 @@ public class SpellControlSystem implements Listener
 		spell_registry.put(spellsandblast.getName(), spellsandblast);
 		SpellSandstorm spellsandstorm = new SpellSandstorm();
 		spell_registry.put(spellsandstorm.getName(), spellsandstorm);
+		SpellRockFall spellrockfall = new SpellRockFall();
+		spell_registry.put(spellrockfall.getName(), spellrockfall);
 		
 		//UNHOLY SPELLS
 		SpellRot spellrot = new SpellRot();
@@ -419,8 +449,8 @@ public class SpellControlSystem implements Listener
 		spell_registry.put(spellunholyrecall.getName(), spellunholyrecall);
 		SpellLightShift spelllshift = new SpellLightShift();
 		spell_registry.put(spelllshift.getName(), spelllshift);
-		SpellBeyondTheGrave spellBeyondTheGrave = new SpellBeyondTheGrave();
-		spell_registry.put(spellBeyondTheGrave.getName(), spellBeyondTheGrave);
+		SpellDecrepitSoul spellds = new SpellDecrepitSoul();
+		spell_registry.put(spellds.getName(), spellds);
 		
 		//HOLY SPELLS
 		SpellMinorHeal spellminorheal = new SpellMinorHeal();
@@ -573,6 +603,28 @@ public class SpellControlSystem implements Listener
 	}
 	public enum spelltype
 	{
+		ALMIGHTY("Almighty", null, Set.of(
+				EntityType.ALLAY,
+				EntityType.WITHER,
+				EntityType.WARDEN,
+				EntityType.ENDER_DRAGON)),
+		ASTRAL("Astral", null, Set.of(
+				EntityType.ENDER_DRAGON, 
+				EntityType.ENDERMAN, 
+				EntityType.SHULKER, 
+				EntityType.ENDERMITE)),
+		SOLAR("Solar", null, Set.of(
+				EntityType.MAGMA_CUBE, 
+				EntityType.PIGLIN,
+				EntityType.BLAZE,
+				EntityType.HUSK,
+				EntityType.CREEPER,
+				EntityType.ENDER_DRAGON,
+				EntityType.PIGLIN_BRUTE,
+				EntityType.STRIDER,
+				EntityType.ZOGLIN,
+				EntityType.SNIFFER,
+				EntityType.ZOMBIFIED_PIGLIN)),
 		FIRE("Fire", null, Set.of(
 				EntityType.MAGMA_CUBE, 
 				EntityType.PIGLIN,

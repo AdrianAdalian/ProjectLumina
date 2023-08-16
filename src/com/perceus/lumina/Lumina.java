@@ -19,6 +19,7 @@ public class Lumina extends JavaPlugin
 		Bukkit.getPluginManager().registerEvents(new LuminaGui(), this);
 		Bukkit.getPluginManager().registerEvents(new WandHoldEvent(), this);
 		Bukkit.getPluginManager().registerEvents(new EntityDeathListener(), this);
+		Bukkit.getPluginManager().registerEvents(new EntityHealthReticle(), this);
 //		Bukkit.getPluginManager().registerEvents(new EntityDamageListener(), this);
 		instance = this;
 		

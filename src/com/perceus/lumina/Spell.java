@@ -13,6 +13,8 @@ import org.bukkit.inventory.meta.BookMeta.Generation;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import com.perceus.lumina.SpellControlSystem.spelltype;
+import com.perceus.lumina.utils.DataUtils;
+import com.perceus.lumina.utils.DataUtils.DType;
 
 public abstract class Spell
 {
@@ -95,7 +97,7 @@ public abstract class Spell
 		
 		bookmeta.addPage(PrintUtils.ColorParser(sb.toString()));
 		stack.setItemMeta(bookmeta);
-		
+		DataUtils.set("spellbook", DType.STRING, name, stack);
 		return stack;
 	}
 }

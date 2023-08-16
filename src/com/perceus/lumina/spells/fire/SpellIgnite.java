@@ -1,6 +1,7 @@
 package com.perceus.lumina.spells.fire;
 
 import org.bukkit.Material;
+import org.bukkit.Particle;
 import org.bukkit.Sound;
 import org.bukkit.SoundCategory;
 import org.bukkit.block.Block;
@@ -11,6 +12,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import com.perceus.lumina.GetNearestEntity;
 import com.perceus.lumina.Spell;
 import com.perceus.lumina.SpellControlSystem.spelltype;
+import com.perceus.lumina.SpellParticle;
 
 public class SpellIgnite extends Spell
 {
@@ -25,8 +27,8 @@ public class SpellIgnite extends Spell
 				"&r&fDuration: 10 seconds.",
 				"&r&fRange: 10 meters.",
 				"&r&fMana cost: 5 &r&9mana&r&f.",
-				"&r&fCooldown: 3 seconds."
-		}, 5, 60, spelltype.FIRE);
+				"&r&fCooldown: 1 second."
+		}, 5, 20, spelltype.FIRE);
 	}
 
 	@Override
@@ -46,6 +48,8 @@ public class SpellIgnite extends Spell
 			target2.setType(Material.FIRE);
 			return true;
 		}
+		
+		SpellParticle.drawLine(player.getLocation(), target.getLocation(), 1, Particle.FLAME, null);
 		player.playSound(player.getLocation(), Sound.ENTITY_BLAZE_SHOOT, SoundCategory.MASTER, 1, 1);
 		target.setFireTicks(200);
 		return true;

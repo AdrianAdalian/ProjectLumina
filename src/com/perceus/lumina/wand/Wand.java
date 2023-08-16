@@ -1,5 +1,6 @@
 package com.perceus.lumina.wand;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.bukkit.Material;
@@ -117,7 +118,12 @@ public class Wand
 			}
 		}
 		List<String> existingLore = meta.getLore();
+		if (existingLore == null) 
+		{
+			existingLore = new ArrayList<>();
+		}
 		existingLore.add("");
+		
 		existingLore.add(PrintUtils.ColorParser("&r&9Mana&f: " )+ currentdurability + PrintUtils.ColorParser("&r&f/")+ maxdurability);
 		meta.setLore(existingLore);
 		
