@@ -10,16 +10,18 @@ import com.perceus.lumina.LuminaGui;
 import com.perceus.lumina.Spell;
 import com.perceus.lumina.SpellControlSystem.spelltype;
 
-public class SpellGate extends Spell
+public class SpellLocate extends Spell
 {
 
-	public SpellGate()
+	public SpellLocate()
 	{
-		super("Gate", new String[] {
-				"&r&7&ko&r&7&lSpell: &r&fGate&r&7&ko&r",
+		super("Locate", new String[] {
+				"&r&7&ko&r&7&lSpell: &r&fLocate&r&7&ko&r",
 				"&r&fElement: &r&3&lVOID&r&f.",
-				"&r&fSpell Type: &6&lSignature &r&bUtility&f.",
-				"&r&fTeleport between the Overworld, Nether, and The End.",
+				"&r&fSpell Type: &bUtility&f.",
+				"&r&fAllows the caster to locate structures", 
+				"&r&flocally to their present location.",
+				"&r&fRange: 100 chunks.",
 				"&r&fMana cost: 100 &r&9mana&r&f.",
 				"&r&fCooldown: 1 second."
 		}, 100, 20, spelltype.VOID);
@@ -29,7 +31,7 @@ public class SpellGate extends Spell
 	public boolean Cast(Player player, PlayerInteractEvent event)
 	{
 		player.playSound(event.getPlayer().getLocation(), Sound.BLOCK_ENDER_CHEST_OPEN, SoundCategory.MASTER, 1, 1);
-		LuminaGui.openGUI(player, Bukkit.createInventory(null, 27, "Lumina GUI: Choose a Locale"));	
+		LuminaGui.openGUI(player, Bukkit.createInventory(null, 27, "Lumina GUI: Choose a Structure"));
 		return true;
 	}
 

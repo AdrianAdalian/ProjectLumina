@@ -1,6 +1,8 @@
 package com.perceus.lumina.spells.almighty;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Sound;
+import org.bukkit.SoundCategory;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerInteractEvent;
 
@@ -26,6 +28,8 @@ public class SpellCreate extends Spell
 	@Override
 	public boolean Cast(Player player, PlayerInteractEvent event)
 	{
+		
+		player.playSound(event.getPlayer().getLocation(), Sound.BLOCK_ENDER_CHEST_OPEN, SoundCategory.MASTER, 1, 1);
 		LuminaGui.openGUI(player, Bukkit.createInventory(null, 27, "Lumina GUI: Choose an Item"));
 		return true;
 	}

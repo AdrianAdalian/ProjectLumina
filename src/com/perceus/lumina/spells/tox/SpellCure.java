@@ -2,6 +2,8 @@ package com.perceus.lumina.spells.tox;
 
 import java.util.List;
 
+import org.bukkit.Sound;
+import org.bukkit.SoundCategory;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.potion.PotionEffectType;
@@ -35,6 +37,7 @@ public class SpellCure extends Spell
 			player.sendMessage("You are not afflicted with an illness.");
 			return false;
 		}
+		player.playSound(event.getPlayer().getLocation(), Sound.BLOCK_BELL_RESONATE, SoundCategory.MASTER, 1, 1);
 		for(PotionEffectType pet : negEffects)
 		{
 			if(!player.hasPotionEffect(pet)) 

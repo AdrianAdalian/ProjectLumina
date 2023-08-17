@@ -19,11 +19,13 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.generator.structure.Structure;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryView;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.util.StructureSearchResult;
 
 import com.perceus.lumina.SpellControlSystem.spelltype;
 import com.perceus.lumina.spells.cantrips.CantripBlink;
@@ -40,6 +42,7 @@ public class LuminaGui implements Listener
 {
 	private static Map<String, Set<Integer>> white_listed_slots = 
 	Map.of(
+		"Lumina GUI: Choose a Structure", Set.of(2,3,4,5,6,10,11,12,13,14,15,16,20,21,22,23,24),
 		"Lumina GUI: Choose an Item", Set.of(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26),
 		"Lumina GUI: Choose a Locale", Set.of(12,13,14),
 		"Lumina GUI: Choose a Spell", Set.of(10,11,12,13,14,15,16),
@@ -55,6 +58,129 @@ public class LuminaGui implements Listener
 		InventoryView view = inGUI.get(player);
 		switch (view.getTitle()) 
 		{
+			case "Lumina GUI: Choose a Structure"->
+			{
+				ItemStack nullspace = new ItemStack(Material.GRAY_STAINED_GLASS_PANE);
+				ItemMeta nullmeta = nullspace.getItemMeta();
+				nullmeta.setDisplayName("_");
+				nullspace.setItemMeta(nullmeta);
+				view.setItem(0, nullspace);
+				view.setItem(1, nullspace);
+				
+				ItemStack stack = new ItemStack(Material.REINFORCED_DEEPSLATE);
+				ItemMeta meta = stack.getItemMeta();
+				meta.setDisplayName("Ancient City");
+				stack.setItemMeta(meta);
+				view.setItem(2, stack);
+				
+				ItemStack stack2 = new ItemStack(Material.CHEST);
+				ItemMeta meta2 = stack2.getItemMeta();
+				meta2.setDisplayName("Buried Treasure");
+				stack2.setItemMeta(meta2);
+				view.setItem(3, stack2);
+				
+				ItemStack stack3 = new ItemStack(Material.SANDSTONE);
+				ItemMeta meta3 = stack3.getItemMeta();
+				meta3.setDisplayName("Desert Pyramid");
+				stack3.setItemMeta(meta3);
+				view.setItem(4, stack3);
+				
+				ItemStack stack4 = new ItemStack(Material.SNOW_BLOCK);
+				ItemMeta meta4 = stack3.getItemMeta();
+				meta4.setDisplayName("Igloo");
+				stack4.setItemMeta(meta4);
+				view.setItem(5, stack4);
+				
+				ItemStack stack5 = new ItemStack(Material.MOSSY_COBBLESTONE);
+				ItemMeta meta5 = stack5.getItemMeta();
+				meta5.setDisplayName("Jungle Temple");
+				stack5.setItemMeta(meta5);
+				view.setItem(6, stack5);
+				
+				view.setItem(7, nullspace);
+				view.setItem(8, nullspace);
+				view.setItem(9, nullspace);
+				
+				ItemStack stack6 = new ItemStack(Material.DARK_OAK_PLANKS);
+				ItemMeta meta6 = stack6.getItemMeta();
+				meta6.setDisplayName("Mansion");
+				stack6.setItemMeta(meta6);
+				view.setItem(10, stack6);
+				
+				ItemStack stack7 = new ItemStack(Material.TORCH);
+				ItemMeta meta7 = stack7.getItemMeta();
+				meta7.setDisplayName("Mineshaft");
+				stack7.setItemMeta(meta7);
+				view.setItem(11, stack7);
+				
+				ItemStack stack8 = new ItemStack(Material.PRISMARINE);
+				ItemMeta meta8 = stack8.getItemMeta();
+				meta8.setDisplayName("Monument");
+				stack8.setItemMeta(meta8);
+				view.setItem(12, stack8);
+				
+				ItemStack stack9 = new ItemStack(Material.PILLAGER_SPAWN_EGG);
+				ItemMeta meta9 = stack9.getItemMeta();
+				meta9.setDisplayName("Pillager Outpost");
+				stack9.setItemMeta(meta9);
+				view.setItem(13, stack9);
+				
+				ItemStack stack10 = new ItemStack(Material.GILDED_BLACKSTONE);
+				ItemMeta meta10 = stack10.getItemMeta();
+				meta10.setDisplayName("Ruined Portal");
+				stack10.setItemMeta(meta10);
+				view.setItem(14, stack10);
+				
+				ItemStack stack11 = new ItemStack(Material.MOSSY_STONE_BRICKS);
+				ItemMeta meta11 = stack11.getItemMeta();
+				meta11.setDisplayName("Stronghold");
+				stack11.setItemMeta(meta11);
+				view.setItem(15, stack11);
+				
+				ItemStack stack12 = new ItemStack(Material.OAK_DOOR);
+				ItemMeta meta12 = stack12.getItemMeta();
+				meta12.setDisplayName("Plains Village");
+				stack12.setItemMeta(meta12);
+				view.setItem(16, stack12);
+				
+				view.setItem(17, nullspace);
+				view.setItem(18, nullspace);
+				view.setItem(19, nullspace);
+				
+				ItemStack stack13 = new ItemStack(Material.BIRCH_DOOR);
+				ItemMeta meta13 = stack13.getItemMeta();
+				meta13.setDisplayName("Snowy Village");
+				stack13.setItemMeta(meta13);
+				view.setItem(20, stack13);
+				
+				ItemStack stack14 = new ItemStack(Material.ACACIA_DOOR);
+				ItemMeta meta14 = stack14.getItemMeta();
+				meta14.setDisplayName("Savannah Village");
+				stack14.setItemMeta(meta14);
+				view.setItem(21, stack14);
+				
+				ItemStack stack15 = new ItemStack(Material.SPRUCE_DOOR);
+				ItemMeta meta15 = stack15.getItemMeta();
+				meta15.setDisplayName("Taiga Village");
+				stack15.setItemMeta(meta15);
+				view.setItem(22, stack15);
+				
+				ItemStack stack16 = new ItemStack(Material.BAMBOO_DOOR);
+				ItemMeta meta16 = stack16.getItemMeta();
+				meta16.setDisplayName("Desert Village");
+				stack16.setItemMeta(meta16);
+				view.setItem(23, stack16);
+				
+				ItemStack stack17 = new ItemStack(Material.WITCH_SPAWN_EGG);
+				ItemMeta meta17 = stack17.getItemMeta();
+				meta17.setDisplayName("Witch's House");
+				stack17.setItemMeta(meta17);
+				view.setItem(24, stack17);
+				
+				view.setItem(25, nullspace);
+				view.setItem(26, nullspace);
+				
+			}
 			case "Lumina GUI: Choose an Item" ->
 			{
 				view.setItem(0, new ItemStack(Material.GRASS_BLOCK));
@@ -426,6 +552,221 @@ public class LuminaGui implements Listener
 		
 		switch (e.getView().getTitle()) 
 		{
+			case "Lumina GUI: Choose a Structure" ->
+			{
+				switch (e.getRawSlot()) 
+				{
+					case 2->
+					{
+						StructureSearchResult result = e.getWhoClicked().getWorld().locateNearestStructure(e.getWhoClicked().getLocation(), Structure.ANCIENT_CITY, 100, false);
+						if (result == null) 
+						{
+							e.getWhoClicked().sendMessage("No structure found.");
+							e.getWhoClicked().closeInventory();
+							return;
+						}
+						e.getWhoClicked().sendMessage("Ancient City found at X: " + result.getLocation().getBlockX() + " Y: " + result.getLocation().getBlockY() + " Z: " + result.getLocation().getBlockZ());
+						e.getWhoClicked().closeInventory();
+					}
+					case 3 ->
+					{
+						StructureSearchResult result = e.getWhoClicked().getWorld().locateNearestStructure(e.getWhoClicked().getLocation(), Structure.BURIED_TREASURE, 100, true);
+						if (result == null) 
+						{
+							e.getWhoClicked().sendMessage("No structure found.");
+							e.getWhoClicked().closeInventory();
+							return;
+						}
+						e.getWhoClicked().sendMessage("New treasure found at X: " + result.getLocation().getBlockX() + " Y: " + result.getLocation().getBlockY() + " Z: " + result.getLocation().getBlockZ());
+						e.getWhoClicked().closeInventory();
+					}
+					case 4 ->
+					{
+						StructureSearchResult result = e.getWhoClicked().getWorld().locateNearestStructure(e.getWhoClicked().getLocation(), Structure.DESERT_PYRAMID, 100, false);
+						if (result == null) 
+						{
+							e.getWhoClicked().sendMessage("No structure found.");
+							e.getWhoClicked().closeInventory();
+							return;
+						}
+						e.getWhoClicked().sendMessage("Pyramid found at X: " + result.getLocation().getBlockX() + " Y: " + result.getLocation().getBlockY() + " Z: " + result.getLocation().getBlockZ());
+						e.getWhoClicked().closeInventory();
+					}
+					case 5 ->
+					{
+						StructureSearchResult result = e.getWhoClicked().getWorld().locateNearestStructure(e.getWhoClicked().getLocation(), Structure.IGLOO, 100, false);
+						if (result == null) 
+						{
+							e.getWhoClicked().sendMessage("No structure found.");
+							e.getWhoClicked().closeInventory();
+							return;
+						}
+						e.getWhoClicked().sendMessage("Igloo found at X: " + result.getLocation().getBlockX() + " Y: " + result.getLocation().getBlockY() + " Z: " + result.getLocation().getBlockZ());
+						e.getWhoClicked().closeInventory();
+					}
+					case 6 ->
+					{
+						StructureSearchResult result = e.getWhoClicked().getWorld().locateNearestStructure(e.getWhoClicked().getLocation(), Structure.JUNGLE_PYRAMID, 100, false);
+						if (result == null) 
+						{
+							e.getWhoClicked().sendMessage("No structure found.");
+							e.getWhoClicked().closeInventory();
+							return;
+						}
+						e.getWhoClicked().sendMessage("Temple found at X: " + result.getLocation().getBlockX() + " Y: " + result.getLocation().getBlockY() + " Z: " + result.getLocation().getBlockZ());
+						e.getWhoClicked().closeInventory();
+					}
+					
+					case 10 ->
+					{
+						StructureSearchResult result = e.getWhoClicked().getWorld().locateNearestStructure(e.getWhoClicked().getLocation(), Structure.MANSION, 100, false);
+						if (result == null) 
+						{
+							e.getWhoClicked().sendMessage("No structure found.");
+							e.getWhoClicked().closeInventory();
+							return;
+						}
+						e.getWhoClicked().sendMessage("Mansion found at X: " + result.getLocation().getBlockX() + " Y: " + result.getLocation().getBlockY() + " Z: " + result.getLocation().getBlockZ());
+						e.getWhoClicked().closeInventory();
+					}
+					case 11 ->
+					{
+						StructureSearchResult result = e.getWhoClicked().getWorld().locateNearestStructure(e.getWhoClicked().getLocation(), Structure.MINESHAFT, 100, false);
+						if (result == null) 
+						{
+							e.getWhoClicked().sendMessage("No structure found.");
+							e.getWhoClicked().closeInventory();
+							return;
+						}
+						e.getWhoClicked().sendMessage("Mineshaft found at X: " + result.getLocation().getBlockX() + " Y: " + result.getLocation().getBlockY() + " Z: " + result.getLocation().getBlockZ());
+						e.getWhoClicked().closeInventory();
+					}
+					case 12 ->
+					{
+						StructureSearchResult result = e.getWhoClicked().getWorld().locateNearestStructure(e.getWhoClicked().getLocation(), Structure.MONUMENT, 100, false);
+						if (result == null) 
+						{
+							e.getWhoClicked().sendMessage("No structure found.");
+							e.getWhoClicked().closeInventory();
+							return;
+						}
+						e.getWhoClicked().sendMessage("Monument found at X: " + result.getLocation().getBlockX() + " Y: " + result.getLocation().getBlockY() + " Z: " + result.getLocation().getBlockZ());
+						e.getWhoClicked().closeInventory();
+					}
+					case 13 ->
+					{
+						StructureSearchResult result = e.getWhoClicked().getWorld().locateNearestStructure(e.getWhoClicked().getLocation(), Structure.PILLAGER_OUTPOST, 100, false);
+						if (result == null) 
+						{
+							e.getWhoClicked().sendMessage("No structure found.");
+							e.getWhoClicked().closeInventory();
+							return;
+						}
+						e.getWhoClicked().sendMessage("Outpost found at X: " + result.getLocation().getBlockX() + " Y: " + result.getLocation().getBlockY() + " Z: " + result.getLocation().getBlockZ());
+						e.getWhoClicked().closeInventory();
+					}
+					case 14 ->
+					{
+						StructureSearchResult result = e.getWhoClicked().getWorld().locateNearestStructure(e.getWhoClicked().getLocation(), Structure.RUINED_PORTAL, 100, false);
+						if (result == null) 
+						{
+							e.getWhoClicked().sendMessage("No structure found.");
+							e.getWhoClicked().closeInventory();
+							return;
+						}
+						e.getWhoClicked().sendMessage("Portal found at X: " + result.getLocation().getBlockX() + " Y: " + result.getLocation().getBlockY() + " Z: " + result.getLocation().getBlockZ());
+						e.getWhoClicked().closeInventory();
+					}
+					case 15 ->
+					{
+						StructureSearchResult result = e.getWhoClicked().getWorld().locateNearestStructure(e.getWhoClicked().getLocation(), Structure.STRONGHOLD, 100, false);
+						if (result == null) 
+						{
+							e.getWhoClicked().sendMessage("No structure found.");
+							return;
+						}
+						e.getWhoClicked().sendMessage("Stronghold found at X: " + result.getLocation().getBlockX() + " Y: " + result.getLocation().getBlockY() + " Z: " + result.getLocation().getBlockZ());
+						e.getWhoClicked().closeInventory();
+					}
+					case 16 ->
+					{
+						StructureSearchResult result = e.getWhoClicked().getWorld().locateNearestStructure(e.getWhoClicked().getLocation(), Structure.VILLAGE_PLAINS, 100, false);
+						if (result == null) 
+						{
+							e.getWhoClicked().sendMessage("No structure found.");
+							e.getWhoClicked().closeInventory();
+							return;
+						}
+						e.getWhoClicked().sendMessage("Village found at X: " + result.getLocation().getBlockX() + " Y: " + result.getLocation().getBlockY() + " Z: " + result.getLocation().getBlockZ());
+						e.getWhoClicked().closeInventory();
+					}
+					
+					case 20 ->
+					{
+						StructureSearchResult result = e.getWhoClicked().getWorld().locateNearestStructure(e.getWhoClicked().getLocation(), Structure.VILLAGE_SNOWY, 100, false);
+						if (result == null) 
+						{
+							e.getWhoClicked().sendMessage("No structure found.");
+							e.getWhoClicked().closeInventory();
+							return;
+						}
+						e.getWhoClicked().sendMessage("Snowy Village found at X: " + result.getLocation().getBlockX() + " Y: " + result.getLocation().getBlockY() + " Z: " + result.getLocation().getBlockZ());
+						e.getWhoClicked().closeInventory();
+					}
+					case 21 ->
+					{
+						StructureSearchResult result = e.getWhoClicked().getWorld().locateNearestStructure(e.getWhoClicked().getLocation(), Structure.VILLAGE_SAVANNA, 100, false);
+						if (result == null) 
+						{
+							e.getWhoClicked().sendMessage("No structure found.");
+							e.getWhoClicked().closeInventory();
+							return;
+						}
+						e.getWhoClicked().sendMessage("Savannah Village found at X: " + result.getLocation().getBlockX() + " Y: " + result.getLocation().getBlockY() + " Z: " + result.getLocation().getBlockZ());
+						e.getWhoClicked().closeInventory();
+					}
+					case 22 ->
+					{
+						StructureSearchResult result = e.getWhoClicked().getWorld().locateNearestStructure(e.getWhoClicked().getLocation(), Structure.VILLAGE_TAIGA, 100, false);
+						if (result == null) 
+						{
+							e.getWhoClicked().sendMessage("No structure found.");
+							e.getWhoClicked().closeInventory();
+							return;
+						}
+						e.getWhoClicked().sendMessage("Taiga Village found at X: " + result.getLocation().getBlockX() + " Y: " + result.getLocation().getBlockY() + " Z: " + result.getLocation().getBlockZ());
+						e.getWhoClicked().closeInventory();
+					}
+					case 23 -> 
+					{
+						StructureSearchResult result = e.getWhoClicked().getWorld().locateNearestStructure(e.getWhoClicked().getLocation(), Structure.VILLAGE_DESERT, 100, false);
+						if (result == null) 
+						{
+							e.getWhoClicked().sendMessage("No structure found.");
+							e.getWhoClicked().closeInventory();
+							return;
+						}
+						e.getWhoClicked().sendMessage("Desert Village found at X: " + result.getLocation().getBlockX() + " Y: " + result.getLocation().getBlockY() + " Z: " + result.getLocation().getBlockZ());
+						e.getWhoClicked().closeInventory();
+					}
+					case 24 ->
+					{
+						StructureSearchResult result = e.getWhoClicked().getWorld().locateNearestStructure(e.getWhoClicked().getLocation(), Structure.SWAMP_HUT, 100, false);
+						if (result == null) 
+						{
+							e.getWhoClicked().sendMessage("No structure found.");
+							e.getWhoClicked().closeInventory();
+							return;
+						}
+						e.getWhoClicked().sendMessage("Witch's House found at X: " + result.getLocation().getBlockX() + " Y: " + result.getLocation().getBlockY() + " Z: " + result.getLocation().getBlockZ());
+						e.getWhoClicked().closeInventory();
+					}
+				}
+			}
+		}
+		
+		switch (e.getView().getTitle()) 
+		{
 			case "Lumina GUI: Choose an Item" ->
 			{
 				switch (e.getRawSlot()) 
@@ -457,8 +798,7 @@ public class LuminaGui implements Listener
 					case 24:
 					case 25:
 					case 26:
-					{
-											
+					{		
 						Inventory inv = e.getWhoClicked().getInventory();
 						ItemStack stack = new ItemStack(e.getView().getItem(e.getRawSlot()));
 						stack.setAmount(64);

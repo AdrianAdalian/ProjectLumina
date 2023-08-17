@@ -34,7 +34,7 @@ public class SpellConstitution extends Spell
 	{
 		if (player.getNearbyEntities(5,5,5).size() == 0)
 		{
-			player.sendMessage("Invalid Target.");
+			player.sendMessage("Invalid Target");
 			return false;
 		}
 		player.playSound(player.getLocation(), Sound.BLOCK_BEACON_POWER_SELECT, SoundCategory.MASTER, 1, 1);

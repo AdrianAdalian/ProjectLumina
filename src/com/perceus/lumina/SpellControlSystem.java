@@ -24,6 +24,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import com.perceus.lumina.spells.almighty.SpellAssault;
 import com.perceus.lumina.spells.almighty.SpellBurst;
+import com.perceus.lumina.spells.almighty.SpellCondemn;
 import com.perceus.lumina.spells.almighty.SpellCreate;
 import com.perceus.lumina.spells.almighty.SpellDivineFlame;
 import com.perceus.lumina.spells.astral.SpellAstralProjection;
@@ -92,6 +93,7 @@ import com.perceus.lumina.spells.holy.SpellMagicBarrage;
 import com.perceus.lumina.spells.holy.SpellMagicMissile;
 import com.perceus.lumina.spells.holy.SpellMinorHeal;
 import com.perceus.lumina.spells.holy.SpellPacify;
+import com.perceus.lumina.spells.holy.SpellProperDeath;
 import com.perceus.lumina.spells.holy.SpellProtect;
 import com.perceus.lumina.spells.holy.SpellRadiance;
 import com.perceus.lumina.spells.holy.SpellRapport;
@@ -145,6 +147,7 @@ import com.perceus.lumina.spells.void_spells.SpellCataclysm;
 import com.perceus.lumina.spells.void_spells.SpellCrush;
 import com.perceus.lumina.spells.void_spells.SpellGate;
 import com.perceus.lumina.spells.void_spells.SpellGravitas;
+import com.perceus.lumina.spells.void_spells.SpellLocate;
 import com.perceus.lumina.spells.void_spells.SpellMatterReversal;
 import com.perceus.lumina.spells.void_spells.SpellNullPointEnchantment;
 import com.perceus.lumina.spells.void_spells.SpellOverrideClimate;
@@ -275,6 +278,8 @@ public class SpellControlSystem implements Listener
 		spell_registry.put(spelldivineflame.getName(), spelldivineflame);
 		SpellCreate spellcreate = new SpellCreate();
 		spell_registry.put(spellcreate.getName(), spellcreate);
+		SpellCondemn spellcondemn = new SpellCondemn();
+		spell_registry.put(spellcondemn.getName(), spellcondemn);
 		
 		//ASTRAL SPELLS
 		SpellAstralProjection spellastralprojection = new SpellAstralProjection();
@@ -509,6 +514,8 @@ public class SpellControlSystem implements Listener
 		spell_registry.put(spellhealinghands.getName(), spellhealinghands);
 		SpellMagicBarrage spellmbarrage = new SpellMagicBarrage();
 		spell_registry.put(spellmbarrage.getName(), spellmbarrage);
+		SpellProperDeath spellbup = new SpellProperDeath();
+		spell_registry.put(spellbup.getName(), spellbup);
 		
 		//VOID SPELLS
 		SpellMatterReversal spellmatterreversal = new SpellMatterReversal();
@@ -553,6 +560,8 @@ public class SpellControlSystem implements Listener
 		spell_registry.put(spellvectorplate.getName(), spellvectorplate);
 		SpellRift spellrift = new SpellRift();
 		spell_registry.put(spellrift.getName(), spellrift);
+		SpellLocate spelllocate = new SpellLocate();
+		spell_registry.put(spelllocate.getName(), spelllocate);
 		
 		//TOX SPELL
 		SpellPoisonGas spellpgas = new SpellPoisonGas();
@@ -702,7 +711,8 @@ public class SpellControlSystem implements Listener
 				EntityType.GIANT,
 				EntityType.SKELETON_HORSE,
 				EntityType.WITHER_SKELETON,
-				EntityType.STRAY)),
+				EntityType.STRAY,
+				EntityType.WITCH)),
 		VOID("Void", null, Set.of(
 				EntityType.ILLUSIONER, 
 				EntityType.ENDER_DRAGON, 
@@ -723,7 +733,8 @@ public class SpellControlSystem implements Listener
 				EntityType.SPIDER,
 				EntityType.CAVE_SPIDER,
 				EntityType.BEE,
-				EntityType.BAT));
+				EntityType.BAT,
+				EntityType.WITCH));
 		
 		public String name;
 		public ItemStack grimoire;
