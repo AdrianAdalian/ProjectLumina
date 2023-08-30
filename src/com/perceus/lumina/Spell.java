@@ -14,6 +14,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import com.perceus.lumina.SpellControlSystem.spelltype;
 import com.perceus.lumina.utils.DataUtils;
+import com.perceus.lumina.utils.PrintUtils;
 import com.perceus.lumina.utils.DataUtils.DType;
 
 public abstract class Spell
@@ -32,7 +33,7 @@ public abstract class Spell
 		this.description = description;
 		this.type = type;
 	}
-
+	
 	public spelltype getSpellType() 
 	{
 		return type;

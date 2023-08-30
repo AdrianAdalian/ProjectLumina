@@ -13,9 +13,9 @@ import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
 
 import com.perceus.lumina.Lumina;
-import com.perceus.lumina.PrintUtils;
 import com.perceus.lumina.Spell;
 import com.perceus.lumina.SpellControlSystem;
+import com.perceus.lumina.utils.PrintUtils;
 
 public class Wand
 {

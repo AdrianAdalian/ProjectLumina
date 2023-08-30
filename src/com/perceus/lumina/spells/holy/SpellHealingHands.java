@@ -9,9 +9,9 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerInteractEvent;
 
-import com.perceus.lumina.GetNearestEntity;
 import com.perceus.lumina.Spell;
 import com.perceus.lumina.SpellControlSystem.spelltype;
+import com.perceus.lumina.utils.GetNearestEntity;
 
 public class SpellHealingHands extends Spell
 {

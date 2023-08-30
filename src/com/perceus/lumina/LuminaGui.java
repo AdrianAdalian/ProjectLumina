@@ -36,6 +36,7 @@ import com.perceus.lumina.spells.cantrips.CantripLifeSteal;
 import com.perceus.lumina.spells.cantrips.CantripSoak;
 import com.perceus.lumina.spells.cantrips.CantripTerraform;
 import com.perceus.lumina.utils.DataUtils;
+import com.perceus.lumina.utils.PrintUtils;
 import com.perceus.lumina.wand.Wand;
 
 public class LuminaGui implements Listener

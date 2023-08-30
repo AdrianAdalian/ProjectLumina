@@ -1,5 +1,6 @@
 package com.perceus.lumina.spells.cantrips;
 
+import org.bukkit.Particle;
 import org.bukkit.Sound;
 import org.bukkit.SoundCategory;
 import org.bukkit.entity.Player;
@@ -8,6 +9,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 
 import com.perceus.lumina.Spell;
 import com.perceus.lumina.SpellControlSystem.spelltype;
+import com.perceus.lumina.utils.SpellParticle;
 
 public class CantripEmbers extends Spell
 {
@@ -27,6 +29,7 @@ public class CantripEmbers extends Spell
 	@Override
 	public boolean Cast(Player player, PlayerInteractEvent event)
 	{
+		SpellParticle.drawCircle(player.getLocation(), 2, 180, Particle.FLAME, null);
 		player.playSound(player.getLocation(), Sound.ITEM_FIRECHARGE_USE, SoundCategory.MASTER, 1, 1);
 		player.launchProjectile(SmallFireball.class);
 		return true;

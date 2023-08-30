@@ -2,6 +2,7 @@ package com.perceus.lumina.spells.cantrips;
 
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.Particle;
 import org.bukkit.Sound;
 import org.bukkit.SoundCategory;
 import org.bukkit.block.Block;
@@ -10,6 +11,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 
 import com.perceus.lumina.Spell;
 import com.perceus.lumina.SpellControlSystem.spelltype;
+import com.perceus.lumina.utils.SpellParticle;
 
 public class CantripBlink extends Spell
 {
@@ -51,7 +53,9 @@ public class CantripBlink extends Spell
 		newlocation.setPitch(PITCH);
 		
 		//Location newlocation is a defined variable that we are using to store a player float (yaw/pitch), and then plugging this information into the teleport.
-		
+		SpellParticle.drawLine(player.getLocation(), newlocation, 1, Particle.PORTAL, null);
+		SpellParticle.drawCircle(player.getLocation(), 2, 180, Particle.PORTAL, null);
+		SpellParticle.drawCircle(newlocation, 2, 180, Particle.PORTAL, null);
 		player.teleport(newlocation);
 		return true;
 	}

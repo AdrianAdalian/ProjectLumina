@@ -9,9 +9,10 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerInteractEvent;
 
-import com.perceus.lumina.GetNearestEntity;
 import com.perceus.lumina.Spell;
 import com.perceus.lumina.SpellControlSystem.spelltype;
+import com.perceus.lumina.utils.GetNearestEntity;
+import com.perceus.lumina.utils.SpellParticle;
 
 public class SpellAssault extends Spell
 {
@@ -41,7 +42,7 @@ public class SpellAssault extends Spell
 		player.playSound(player.getLocation(), Sound.ENTITY_ARMOR_STAND_HIT, SoundCategory.MASTER, 1, 1);
 		player.getWorld().spawnParticle(Particle.EXPLOSION_LARGE, t.getLocation().add(new Location(t.getWorld(), 0, 1, 0)), 1);
 		((Damageable) t).damage(10);
-		
+		SpellParticle.drawLine(player.getLocation(), t.getLocation(), 1, Particle.WHITE_ASH, null);
 		return true;
 	}
 

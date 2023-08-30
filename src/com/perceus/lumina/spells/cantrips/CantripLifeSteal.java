@@ -2,6 +2,7 @@ package com.perceus.lumina.spells.cantrips;
 
 import java.util.List;
 
+import org.bukkit.Particle;
 import org.bukkit.Sound;
 import org.bukkit.SoundCategory;
 import org.bukkit.attribute.Attribute;
@@ -11,9 +12,10 @@ import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerInteractEvent;
 
-import com.perceus.lumina.GetNearestEntity;
 import com.perceus.lumina.Spell;
 import com.perceus.lumina.SpellControlSystem.spelltype;
+import com.perceus.lumina.utils.GetNearestEntity;
+import com.perceus.lumina.utils.SpellParticle;
 
 public class CantripLifeSteal extends Spell
 {
@@ -69,6 +71,8 @@ public class CantripLifeSteal extends Spell
 		{
 			event.getPlayer().playSound(event.getPlayer().getLocation(), Sound.ENTITY_WITHER_AMBIENT, SoundCategory.MASTER, 1, 1);
 			((Damageable) target).damage(4, player);
+			SpellParticle.drawLine(player.getLocation(), target.getLocation(), 2, Particle.ASH, null);
+			SpellParticle.drawCircle(player.getLocation(), 2, 180, Particle.ASH, null);
 			try 
 			{
 				player.setHealth(event.getPlayer().getHealth()+2);

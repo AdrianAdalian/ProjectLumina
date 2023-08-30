@@ -1,12 +1,14 @@
 package com.perceus.lumina.spells.cantrips;
 
+import org.bukkit.Particle;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerInteractEvent;
 
-import com.perceus.lumina.GetNearestEntity;
 import com.perceus.lumina.Spell;
 import com.perceus.lumina.SpellControlSystem.spelltype;
+import com.perceus.lumina.utils.GetNearestEntity;
+import com.perceus.lumina.utils.SpellParticle;
 
 public class CantripGust extends Spell
 {
@@ -35,7 +37,8 @@ public class CantripGust extends Spell
 			player.sendMessage("Invalid Target");
 			return false;
 		}
-		
+		SpellParticle.drawCircle(player.getLocation(), 2, 180, Particle.FIREWORKS_SPARK, null);
+		SpellParticle.drawLine(player.getLocation(), target.getLocation(), 2, Particle.CLOUD, null);
 		target.setVelocity(target.getLocation().toVector().subtract(event.getPlayer().getLocation().toVector()));
 		return true;
 	}

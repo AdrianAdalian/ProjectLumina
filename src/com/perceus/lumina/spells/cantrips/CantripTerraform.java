@@ -1,6 +1,7 @@
 package com.perceus.lumina.spells.cantrips;
 
 import org.bukkit.Material;
+import org.bukkit.Particle;
 import org.bukkit.Sound;
 import org.bukkit.SoundCategory;
 import org.bukkit.block.Block;
@@ -9,6 +10,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 
 import com.perceus.lumina.Spell;
 import com.perceus.lumina.SpellControlSystem.spelltype;
+import com.perceus.lumina.utils.SpellParticle;
 
 public class CantripTerraform extends Spell
 {
@@ -40,7 +42,7 @@ public class CantripTerraform extends Spell
 		}
 		
 		player.playSound(player.getLocation(), Sound.BLOCK_GRASS_PLACE, SoundCategory.MASTER, 1, 1);
-		
+		SpellParticle.drawCircle(player.getLocation(), 2, 180, Particle.SPELL, null);
 		event.getClickedBlock().getRelative(event.getBlockFace()).setType(Material.DIRT);
 		return true;
 	}

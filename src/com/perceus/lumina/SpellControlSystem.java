@@ -22,11 +22,13 @@ import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import com.perceus.lumina.spells.aethereal.SpellFortifyAffinity;
 import com.perceus.lumina.spells.almighty.SpellAssault;
 import com.perceus.lumina.spells.almighty.SpellBurst;
 import com.perceus.lumina.spells.almighty.SpellCondemn;
 import com.perceus.lumina.spells.almighty.SpellCreate;
 import com.perceus.lumina.spells.almighty.SpellDivineFlame;
+import com.perceus.lumina.spells.ancient.SpellCreateCow;
 import com.perceus.lumina.spells.astral.SpellAstralProjection;
 import com.perceus.lumina.spells.cantrips.CantripBlink;
 import com.perceus.lumina.spells.cantrips.CantripEmbers;
@@ -101,6 +103,7 @@ import com.perceus.lumina.spells.holy.SpellRegenerate;
 import com.perceus.lumina.spells.holy.SpellSatiate;
 import com.perceus.lumina.spells.holy.SpellVialOfSupport;
 import com.perceus.lumina.spells.holy.SpellWard;
+import com.perceus.lumina.spells.lunar.SpellLunarBolt;
 import com.perceus.lumina.spells.solar.SpellSolarBolt;
 import com.perceus.lumina.spells.storm.SpellBoost;
 import com.perceus.lumina.spells.storm.SpellCharge;
@@ -288,6 +291,10 @@ public class SpellControlSystem implements Listener
 		//SOLAR SPELLS
 		SpellSolarBolt spellsolarbolt = new SpellSolarBolt();
 		spell_registry.put(spellsolarbolt.getName(), spellsolarbolt);
+		
+		//LUNAR SPELLS
+		SpellLunarBolt spelllunarbolt = new SpellLunarBolt();
+		spell_registry.put(spelllunarbolt.getName(), spelllunarbolt);
 		
 		//FIRE SPELLS
 		SpellFireball spellfireball = new SpellFireball();
@@ -585,6 +592,14 @@ public class SpellControlSystem implements Listener
 		SpellEquilibrium spellequilibrium = new SpellEquilibrium();
 		spell_registry.put(spellequilibrium.getName(), spellequilibrium);
 		
+		//AETHEREAL SPELLS
+		SpellFortifyAffinity spellfortifyaffinity = new SpellFortifyAffinity();
+		spell_registry.put(spellfortifyaffinity.getName(), spellfortifyaffinity);
+		
+		//Ancient Spells
+		SpellCreateCow spellcreatecow = new SpellCreateCow();
+		spell_registry.put(spellcreatecow.getName(), spellcreatecow);
+		
 		//cantrips
 		CantripEmbers cantripembers = new CantripEmbers();
 		spell_registry.put(cantripembers.getName(), cantripembers);
@@ -612,6 +627,23 @@ public class SpellControlSystem implements Listener
 	}
 	public enum spelltype
 	{
+		LUNAR("Lunar", null, Set.of(
+				EntityType.ENDERMAN,
+				EntityType.PHANTOM,
+				EntityType.WARDEN,
+				EntityType.ALLAY)),
+		AETHEREAL("Aethereal", null, Set.of(
+				EntityType.ENDER_DRAGON,
+				EntityType.ENDERMAN,
+				EntityType.ENDERMITE)),
+		ANCIENT("Ancient", null, Set.of(
+				EntityType.ALLAY,
+				EntityType.WARDEN,
+				EntityType.WITHER,
+				EntityType.VEX,
+				EntityType.VILLAGER,
+				EntityType.ENDER_DRAGON,
+				EntityType.ENDERMAN)),
 		ALMIGHTY("Almighty", null, Set.of(
 				EntityType.ALLAY,
 				EntityType.WITHER,

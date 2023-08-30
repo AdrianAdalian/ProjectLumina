@@ -1,5 +1,6 @@
 package com.perceus.lumina.spells.cantrips;
 
+import org.bukkit.Particle;
 import org.bukkit.Sound;
 import org.bukkit.SoundCategory;
 import org.bukkit.entity.LivingEntity;
@@ -7,10 +8,12 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
+import org.fusesource.jansi.Ansi.Color;
 
-import com.perceus.lumina.GetNearestEntity;
 import com.perceus.lumina.Spell;
 import com.perceus.lumina.SpellControlSystem.spelltype;
+import com.perceus.lumina.utils.GetNearestEntity;
+import com.perceus.lumina.utils.SpellParticle;
 
 public class CantripSoak extends Spell
 {
@@ -36,6 +39,8 @@ public class CantripSoak extends Spell
 			player.sendMessage("Invalid Target.");
 			return false;
 		}
+		SpellParticle.drawLine(player.getLocation(), target.getLocation(), 2, Particle.SPELL_MOB, null);
+		SpellParticle.drawCircle(player.getLocation(), 2, 180, Particle.SPELL_MOB, Color.BLUE);
 		player.playSound(player.getLocation(), Sound.AMBIENT_UNDERWATER_EXIT, SoundCategory.MASTER, 1, 1);
 		target.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 200, 0));
 		target.addPotionEffect(new PotionEffect(PotionEffectType.SLOW_DIGGING, 200, 0));

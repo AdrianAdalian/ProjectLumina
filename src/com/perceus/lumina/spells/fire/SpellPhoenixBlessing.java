@@ -3,9 +3,9 @@ package com.perceus.lumina.spells.fire;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerInteractEvent;
 
-import com.perceus.lumina.EntityDeathListener;
 import com.perceus.lumina.Spell;
 import com.perceus.lumina.SpellControlSystem.spelltype;
+import com.perceus.lumina.listeners.EntityDeathListener;
 
 public class SpellPhoenixBlessing extends Spell
 {

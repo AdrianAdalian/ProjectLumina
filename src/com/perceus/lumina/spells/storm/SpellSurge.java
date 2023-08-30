@@ -19,7 +19,7 @@ public class SpellSurge extends Spell
 				"&r&7&ko&r&7&lSpell: &r&fSurge&r&7&ko&r",
 				"&r&fElement: &r&dStorm&r&f.",
 				"&r&fSpell Type: &cOffensive &6&lSignature&r&d AOE&f.",
-				"&r&fSummon small bolts of lightning at targets nearby.",
+				"&r&fSummon small bolts of lightning at nearby targets.",
 				"&r&fRange: 30 meters.",
 				"&r&fMana cost: 400 &r&9mana&r&f.",
 				"&r&fCooldown: 10 seconds."

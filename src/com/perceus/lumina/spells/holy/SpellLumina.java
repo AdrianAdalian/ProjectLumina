@@ -18,7 +18,7 @@ public class SpellLumina extends Spell
 		super("Lumina", new String[] {
 				"&r&7&ko&r&7&lSpell: &r&fLumina&r&7&ko&r",
 				"&r&fElement: &r&f&o&lHoly&r&f.",
-				"&r&fSpell Type: &6&lSignature &r&bUtility&f.",
+				"&r&fSpell Type: &6&lSignature&r&f Flagship &bUtility&f.",
 				"&r&fCast a wisp of light at target block.",
 				"&r&fDuration: 30 seconds.",
 				"&r&fMana cost: 5 &r&9mana&r&f.",

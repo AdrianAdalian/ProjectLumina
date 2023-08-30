@@ -26,7 +26,7 @@ public class SpellDivineFlame extends Spell
 	@Override
 	public boolean Cast(Player player, PlayerInteractEvent event)
 	{
-
+		
 		Fireball sf = (Fireball) player.launchProjectile(Fireball.class);
 		sf.setYield(15);
 		sf.setIsIncendiary(true);

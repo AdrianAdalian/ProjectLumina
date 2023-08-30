@@ -1,5 +1,6 @@
 package com.perceus.lumina.spells.cantrips;
 
+import org.bukkit.Particle;
 import org.bukkit.Sound;
 import org.bukkit.SoundCategory;
 import org.bukkit.attribute.Attributable;
@@ -9,9 +10,10 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerInteractEvent;
 
-import com.perceus.lumina.GetNearestEntity;
 import com.perceus.lumina.Spell;
 import com.perceus.lumina.SpellControlSystem.spelltype;
+import com.perceus.lumina.utils.GetNearestEntity;
+import com.perceus.lumina.utils.SpellParticle;
 
 public class CantripHealOther extends Spell
 {
@@ -49,9 +51,10 @@ public class CantripHealOther extends Spell
 			player.sendMessage("That player is already at maximum health.");
 			return false;
 		}
-		
+		SpellParticle.drawCircle(player.getLocation(), 2, 180, Particle.CLOUD, null);
 		try
 		{
+			SpellParticle.drawLine(player.getLocation(), target.getLocation(), 2, Particle.CLOUD, null);
 			event.getPlayer().playSound(event.getPlayer().getLocation(), Sound.BLOCK_ENCHANTMENT_TABLE_USE, SoundCategory.MASTER, 1, 1);
 			((Player) target).playSound(event.getPlayer().getLocation(), Sound.BLOCK_ENCHANTMENT_TABLE_USE, SoundCategory.MASTER, 1, 1);
 			((Damageable) target).setHealth(event.getPlayer().getHealth()+10);		

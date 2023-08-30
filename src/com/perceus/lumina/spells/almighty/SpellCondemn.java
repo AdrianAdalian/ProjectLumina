@@ -12,9 +12,10 @@ import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerInteractEvent;
 
-import com.perceus.lumina.GetNearestEntity;
 import com.perceus.lumina.Spell;
 import com.perceus.lumina.SpellControlSystem.spelltype;
+import com.perceus.lumina.utils.GetNearestEntity;
+import com.perceus.lumina.utils.SpellParticle;
 
 public class SpellCondemn extends Spell
 {
@@ -55,6 +56,7 @@ public class SpellCondemn extends Spell
 		}
 		
 		((LivingEntity) target).damage(500);
+		SpellParticle.drawLine(player.getLocation(), target.getLocation(), 1, Particle.WHITE_ASH, null);
 		player.playSound(player.getLocation(), Sound.BLOCK_BELL_USE, SoundCategory.MASTER, 1, 1);
 		target.getWorld().spawnParticle(Particle.SMOKE_LARGE, target.getLocation().add(new Location(target.getWorld(), 0,1,0)), 5);
 		target.getWorld().spawnParticle(Particle.ASH, target.getLocation().add(new Location(target.getWorld(), 0,1,0)), 5);
