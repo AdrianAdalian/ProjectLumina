@@ -1,6 +1,7 @@
 package com.perceus.lumina.listeners;
 
 import org.bukkit.GameMode;
+import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
@@ -12,6 +13,7 @@ import com.perceus.lumina.wand.Wand;
 
 public class LuminaOnJoinOnQuitEvent implements Listener
 {
+	@EventHandler
 	public void onJoin(PlayerJoinEvent e) 
 	{
 		if (!e.getPlayer().isOp()) 
@@ -32,9 +34,9 @@ public class LuminaOnJoinOnQuitEvent implements Listener
 			e.getPlayer().sendMessage("Shift + Right Click to open the wand's spell menu with the wand in hand.");
 		}
 		e.getPlayer().sendMessage("Welcome Back, " + e.getPlayer().getDisplayName() + "!");
-		
+		e.getPlayer().sendMessage("Project Lumina, ONLINE. Running v. (1.0.0)");
 	}
-	
+	@EventHandler
 	public void onQuit(PlayerQuitEvent e) 
 	{
 		if (!e.getPlayer().isOp()) 

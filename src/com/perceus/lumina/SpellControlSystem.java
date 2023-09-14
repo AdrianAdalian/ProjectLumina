@@ -62,6 +62,7 @@ import com.perceus.lumina.spells.geo.SpellBoulder;
 import com.perceus.lumina.spells.geo.SpellCultivate;
 import com.perceus.lumina.spells.geo.SpellDracomorph;
 import com.perceus.lumina.spells.geo.SpellEarthquake;
+import com.perceus.lumina.spells.geo.SpellExtract;
 import com.perceus.lumina.spells.geo.SpellFortify;
 import com.perceus.lumina.spells.geo.SpellGeomorph;
 import com.perceus.lumina.spells.geo.SpellGrowth;
@@ -427,6 +428,8 @@ public class SpellControlSystem implements Listener
 		spell_registry.put(spellsandstorm.getName(), spellsandstorm);
 		SpellRockFall spellrockfall = new SpellRockFall();
 		spell_registry.put(spellrockfall.getName(), spellrockfall);
+		SpellExtract spellextract = new SpellExtract();
+		spell_registry.put(spellextract.getName(), spellextract);
 		
 		//UNHOLY SPELLS
 		SpellRot spellrot = new SpellRot();

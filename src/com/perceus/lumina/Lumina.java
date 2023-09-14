@@ -7,6 +7,7 @@ import com.perceus.lumina.listeners.EntityDeathListener;
 import com.perceus.lumina.listeners.FireRobeListener;
 import com.perceus.lumina.listeners.GeoRobeListener;
 import com.perceus.lumina.listeners.HolyRobeListener;
+import com.perceus.lumina.listeners.LuminaOnJoinOnQuitEvent;
 import com.perceus.lumina.listeners.StormRobeListener;
 import com.perceus.lumina.listeners.UnholyRobeListener;
 import com.perceus.lumina.listeners.VoidRobeListener;
@@ -64,7 +65,7 @@ public class Lumina extends JavaPlugin
 		Bukkit.getPluginManager().registerEvents(new WaterRobeListener(), this);
 		Bukkit.getPluginManager().registerEvents(new GeoRobeListener(), this);
 		Bukkit.getPluginManager().registerEvents(new UnholyRobeListener(), this);
-
+		Bukkit.getPluginManager().registerEvents(new LuminaOnJoinOnQuitEvent(), this);
 		instance = this;
 		
 		MagicWand_Recipe.Init();
